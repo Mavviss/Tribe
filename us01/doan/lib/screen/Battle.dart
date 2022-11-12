@@ -2,11 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-//import '../models/question.dart';
+import '../models/question.dart';
 
 class Battle extends StatefulWidget {
   const Battle({super.key});
-
   @override
   State<Battle> createState() => _BattleState();
 }
@@ -58,55 +57,55 @@ class _BattleState extends State<Battle> {
                       ],
                     )),
               ),
-            //  _listAnswer(),
+              _listAnswer(),
             ],
           ),
         ),
       ),
     );
   }
-  // GestureDetector _listAnswer() {
-  //   return GestureDetector(
-  //     onTap: () => {},
-  //     child: Container(
-  //       height: MediaQuery.of(context).size.height / 1.5,
-  //       child: PageView.builder(
-  //         physics: const NeverScrollableScrollPhysics(),
-  //         itemCount: questions.length,
-  //         itemBuilder: ((context, index) {
-  //           final _question = questions[index];
-  //           return buildQuestion(_question);
-  //         }),
-  //       ),
-  //     ),
-  //   );
-  // }
-  // Padding buildQuestion(Question question) {
-  //   return Padding(
-  //     padding: const EdgeInsets.all(8.0),
-  //     child: Column(
-  //       children: [
-  //         Container(
-  //           height: MediaQuery.of(context).size.height / 5,
-  //           width: MediaQuery.of(context).size.width / 1,
-  //           decoration: BoxDecoration(
-  //               border: Border.all(width: 2),
-  //               borderRadius: BorderRadius.all(Radius.circular(20))),
-  //           child: Column(children: [
-  //             Text(question.quest),
-  //           ]),
-  //         ),
-  //         const SizedBox(
-  //           height: 20,
-  //         ),
-  //         // Expanded(
-  //         //     child: Answer(
-  //         //   question: question,
-  //         // ))
-  //       ],
-  //     ),
-  //   );
-  // }
+  GestureDetector _listAnswer() {
+    return GestureDetector(
+      onTap: () => {},
+      child: Container(
+        height: MediaQuery.of(context).size.height / 1.5,
+        child: PageView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: questions.length,
+          itemBuilder: ((context, index) {
+            final _question = questions[index];
+            return buildQuestion(_question);
+          }),
+        ),
+      ),
+    );
+  }
+  Padding buildQuestion(Question question) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height / 5,
+            width: MediaQuery.of(context).size.width / 1,
+            decoration: BoxDecoration(
+                border: Border.all(width: 2),
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: Column(children: [
+              Text(question.quest),
+            ]),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          // Expanded(
+          //     child: Answer(
+          //   question: question,
+          // ))
+        ],
+      ),
+    );
+  }
   Row top_layout() {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
       const CircleAvatar(
