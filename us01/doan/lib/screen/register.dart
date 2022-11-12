@@ -20,7 +20,7 @@ class _registerPageState extends State<registerPage> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/background.png'),
                     fit: BoxFit.cover)),
