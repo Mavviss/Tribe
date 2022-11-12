@@ -84,19 +84,19 @@ class _SingleState extends State<Single> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        MaterialButton(
+        ElevatedButton(
           onPressed: () {},
-          color: Color.fromRGBO(240, 240, 240, 1),
+          //color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("50:50"),
         ),
-        MaterialButton(
+        ElevatedButton(
           onPressed: () {},
-          color: Color.fromRGBO(240, 240, 240, 1),
+          //color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("+30s"),
         ),
-        MaterialButton(
+        ElevatedButton(
           onPressed: () {},          
-          color: Color.fromRGBO(240, 240, 240, 1),
+          //color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("Next "),
         ),
       ],
