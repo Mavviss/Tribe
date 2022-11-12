@@ -36,7 +36,7 @@ class _forgotPasswordPageState extends State<forgotPasswordPage> {
           child: Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/background.png'),
+                    image: AssetImage('./images/background.jpg'),
                     fit: BoxFit.cover)),
             child: Center(
               child: Column(

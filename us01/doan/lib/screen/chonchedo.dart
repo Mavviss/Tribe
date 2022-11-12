@@ -1,13 +1,9 @@
-import 'dart:async';
-
 import 'package:doan/screen/information.dart';
 import 'package:doan/screen/shop.dart';
 import 'package:flutter/material.dart';
-// import 'package:tribe_duan/layout/battle.dart';
-// import 'package:tribe_duan/layout/chonmanchoi.dart';
-// import 'package:tribe_duan/layout/single.dart';
-import '../main.dart';
-import 'chonmanchoi.dart';
+import './battle.dart';
+import './chonmanchoi.dart';
+import './single.dart';
 
 //chế độ đối kháng hoặc chơi đơn
 class Picklevel extends StatefulWidget {
@@ -78,12 +74,12 @@ class _PicklevelState extends State<Picklevel> {
                         ),
                         child: MaterialButton(
                           onPressed: (() {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const Battle(),
-                            //   ),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Battle(),
+                              ),
+                            );
                           }),
                           color: Colors.white,
                           child: const Text(
@@ -143,10 +139,8 @@ class _PicklevelState extends State<Picklevel> {
               ),
               GestureDetector(
                 onTap: () => {
-                   Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              const  Inforplayer())),
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext context) => const Inforplayer())),
                 },
                 child: Container(
                   width: 70,
@@ -159,33 +153,32 @@ class _PicklevelState extends State<Picklevel> {
               ),
               GestureDetector(
                 onTap: () => {
-                   Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              const  Shop())),
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext context) => const Shop())),
                 },
                 child: Container(
-                padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),
-                width: 100,
-                height: 45,
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  color: Color.fromRGBO(240, 240, 240, 1),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "images/leaf.png",
-                      height: 20,
+                  padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),
+                  width: 100,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
                     ),
-                    const Text("full")
-                  ],
+                    color: Color.fromRGBO(240, 240, 240, 1),
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "images/leaf.png",
+                        height: 20,
+                      ),
+                      const Text("full")
+                    ],
+                  ),
                 ),
-              ),),
-               Icon(Icons.settings)
+              ),
+              Icon(Icons.settings)
             ],
           ),
         ),

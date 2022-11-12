@@ -9,6 +9,7 @@ class Battle extends StatefulWidget {
   @override
   State<Battle> createState() => _BattleState();
 }
+
 class _BattleState extends State<Battle> {
   int timeleft = 30;
   void startTime() {
@@ -22,6 +23,7 @@ class _BattleState extends State<Battle> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -64,6 +66,7 @@ class _BattleState extends State<Battle> {
       ),
     );
   }
+
   GestureDetector _listAnswer() {
     return GestureDetector(
       onTap: () => {},
@@ -80,6 +83,7 @@ class _BattleState extends State<Battle> {
       ),
     );
   }
+
   Padding buildQuestion(Question question) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -106,6 +110,7 @@ class _BattleState extends State<Battle> {
       ),
     );
   }
+
   Row top_layout() {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
       const CircleAvatar(
@@ -120,36 +125,37 @@ class _BattleState extends State<Battle> {
     ]);
   }
 }
+
 class Answer extends StatelessWidget {
- // final Question question;
-  const Answer({super.key});
+  final Question question;
+  const Answer({super.key, required this.question});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        // children: question.answers
-        //     .map(
-        //       (answer) => Padding(
-        //         padding: const EdgeInsets.all(8.0),
-        //         child: Container(
-        //           height: 45,
-        //           padding: const EdgeInsets.all(10),
-        //           decoration:  BoxDecoration(
-        //             color: Color.fromRGBO(240, 240, 240, 1),
-        //             borderRadius: BorderRadius.all(Radius.circular(10)),
-        //             border: Border.all(width: 1, color: Colors.black),
-        //           ),
-        //           child: Row(
-        //             children: [
-        //               Text(
-        //                 answer.text,
-        //               )
-        //             ],
-        //           ),
-        //         ),
-        //       ),
-        //     )
-        //     .toList(),
+        children: question.answers
+            .map(
+              (answer) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 45,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(240, 240, 240, 1),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(width: 1, color: Colors.black),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        answer.text,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
+            .toList(),
       ),
     );
   }
