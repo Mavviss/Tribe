@@ -58,7 +58,7 @@ class _StartState extends State<Start> {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) => const forgotPasswordPage()));
+                            builder: (BuildContext context) => const LoginPage()));
                       },
                       child: Image.asset(
                         "images/Champion.png",
