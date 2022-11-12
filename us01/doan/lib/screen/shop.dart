@@ -97,7 +97,7 @@ class _ShopState extends State<Shop> {
                         "images/leaf.png",
                         height: size.width / 15,
                       ),
-                      Text("30"),
+                      const Text("30"),
                       Container(
                         width: size.height / 7,
                         height: size.width / 10,
