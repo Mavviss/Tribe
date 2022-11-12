@@ -85,25 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   //sign in button
-                  SizedBox(height: 10),
-                  Center(
-                    child: OutlinedButton(
-                      onPressed: () {
-                        //function đăng nhập đễ đây
-                      },
-                      child: Text(
-                        'Sign in',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: Colors.black),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 150.0, vertical: 8),
-                          minimumSize: Size(200, 45)),
-                    ),
-                  ),
+                 
                   //forgot password
                   SizedBox(height: 10),
                   TextButton(
