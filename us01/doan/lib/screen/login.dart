@@ -1,8 +1,8 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-//import 'register_view.dart';
-//import 'forgot_password_view.dart';
+import './forgot_password.dart';
+import './register.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -108,11 +108,12 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: ((context) =>
-                      //             const forgotPasswordPage())));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const forgotPasswordPage()),
+                        ),
+                      );
                     },
                     child: const Text(
                       'Quên mật khẩu',
@@ -127,24 +128,25 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Chưa có tài khoản ?'),
-                      // TextButton(
-                      //   onPressed: () {
-                      //     setState(() {
-                      //       Navigator.push(
-                      //           context,
-                      //           MaterialPageRoute(
-                      //               builder: ((context) =>
-                      //                   const registerPage())));
-                      //     });
-                      //   },
-                      //   child: const Text(
-                      //     'Đăng kí ngay',
-                      //     style: TextStyle(
-                      //         fontWeight: FontWeight.bold,
-                      //         color: Colors.black,
-                      //         fontSize: 15),
-                      //   ),
-                      // )
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => const registerPage()),
+                              ),
+                            );
+                          });
+                        },
+                        child: const Text(
+                          'Đăng kí ngay',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 15),
+                        ),
+                      )
                     ],
                   )
                 ],
