@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:doan/screen/information.dart';
+import 'package:doan/screen/shop.dart';
 import 'package:flutter/material.dart';
 // import 'package:tribe_duan/layout/battle.dart';
 // import 'package:tribe_duan/layout/chonmanchoi.dart';
@@ -156,7 +157,14 @@ class _PicklevelState extends State<Picklevel> {
                   ),
                 ),
               ),
-              Container(
+              GestureDetector(
+                onTap: () => {
+                   Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const  Shop())),
+                },
+                child: Container(
                 padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),
                 width: 100,
                 height: 45,
@@ -165,7 +173,7 @@ class _PicklevelState extends State<Picklevel> {
                   borderRadius: const BorderRadius.all(
                     Radius.circular(20),
                   ),
-                  color: Color.fromRGBO(225, 225, 225, 1),
+                  color: Color.fromRGBO(240, 240, 240, 1),
                 ),
                 child: Row(
                   children: [
@@ -176,8 +184,8 @@ class _PicklevelState extends State<Picklevel> {
                     const Text("full")
                   ],
                 ),
-              ),
-              const Icon(Icons.settings)
+              ),),
+               Icon(Icons.settings)
             ],
           ),
         ),
