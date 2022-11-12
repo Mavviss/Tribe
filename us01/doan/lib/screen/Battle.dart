@@ -102,10 +102,10 @@ class _BattleState extends State<Battle> {
           const SizedBox(
             height: 20,
           ),
-          Expanded(
-              child: Answer(
-            question: question,
-          ))
+          // Expanded(
+          //     child: Answer(
+          //   question: question,
+          // ))
         ],
       ),
     );
@@ -128,11 +128,7 @@ class _BattleState extends State<Battle> {
 
 class Answer extends StatelessWidget {
   final Question question;
-<<<<<<< HEAD
-  const Answer({super.key,required this.question});
-=======
   const Answer({super.key, required this.question});
->>>>>>> origin/us02
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -144,11 +140,7 @@ class Answer extends StatelessWidget {
                 child: Container(
                   height: 45,
                   padding: const EdgeInsets.all(10),
-<<<<<<< HEAD
-                  decoration:  BoxDecoration(
-=======
                   decoration: BoxDecoration(
->>>>>>> origin/us02
                     color: Color.fromRGBO(240, 240, 240, 1),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     border: Border.all(width: 1, color: Colors.black),

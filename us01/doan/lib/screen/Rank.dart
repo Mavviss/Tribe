@@ -30,7 +30,7 @@ class _RankState extends State<Rank> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
           actions: [
             IconButton(
               onPressed: () {},
@@ -68,22 +68,12 @@ class _RankState extends State<Rank> {
                   fit: BoxFit.cover),
             ),
             child: ListView.builder(
-<<<<<<< HEAD
-              itemCount: player.length,
-              itemBuilder: (context, index) =>  Singlerank(
-              child: player[index],
-            )),),
-          ]
-        ),
-        
-=======
                 itemCount: player.length,
                 itemBuilder: (context, index) => Singlerank(
                       child: player[index],
                     )),
           ),
         ]),
->>>>>>> origin/us02
       ),
     );
   }
