@@ -90,7 +90,24 @@ class _forgotPasswordPageState extends State<forgotPasswordPage> {
 
                     //sign in button
                     SizedBox(height: 10),
-                    
+                    Center(
+                      child: OutlinedButton(
+                        onPressed: () {
+                          //function đăng nhập đễ đây
+                        },
+                        child: Text(
+                          'Lấy lại mật khẩu',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: OutlinedButton.styleFrom(
+                            side: BorderSide(color: Colors.black),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16)),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 120.0, vertical: 8),
+                            minimumSize: Size(200, 45)),
+                      ),
+                    ),
                     //forgot password
                   ]),
             ),
