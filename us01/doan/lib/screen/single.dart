@@ -28,7 +28,7 @@ class _SingleState extends State<Single> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+   
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -86,17 +86,17 @@ class _SingleState extends State<Single> {
       children: [
         MaterialButton(
           onPressed: () {},
-          color: Colors.limeAccent,
+          color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("50:50"),
         ),
         MaterialButton(
           onPressed: () {},
-          color: Colors.greenAccent,
+          color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("+30s"),
         ),
         MaterialButton(
-          onPressed: () {},
-          color: Colors.deepOrangeAccent,
+          onPressed: () {},          
+          color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("Next "),
         ),
       ],
