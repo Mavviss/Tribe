@@ -63,7 +63,6 @@ class _RankState extends State<Rank> {
       ),
     );
   }
-  
   ListView _lstPlayer() {
     return ListView.builder(
         shrinkWrap: true,
@@ -82,5 +81,4 @@ class _RankState extends State<Rank> {
           );
         }));
   }
-  
 }
