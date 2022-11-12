@@ -140,16 +140,12 @@ class _PicklevelState extends State<Picklevel> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(12),
                 width: 70,
                 height: 45,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(240, 240, 240, 1),
-                  border: Border.all(width: 1),
-                ),
-                child: const Text(
-                  "Mavis",
-                ),
+                child: const CircleAvatar(
+        backgroundImage: NetworkImage(
+            "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+      ),
               ),
               Container(
                 padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),

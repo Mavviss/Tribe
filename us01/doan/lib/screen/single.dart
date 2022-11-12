@@ -156,8 +156,8 @@ class _SingleState extends State<Single> {
         color: const Color.fromRGBO(240, 240, 240, 1),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Padding(
-          padding: const EdgeInsets.all(2),
+        const Padding(
+          padding: EdgeInsets.all(2),
           child: CircleAvatar(
             backgroundImage: NetworkImage(
                 "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
