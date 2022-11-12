@@ -23,10 +23,10 @@ class Answer{
 }
 final questions = [
   Question(quest: 'quest', answers: [
-    const Answer(text: 'Dong dep trai', isCorrect: true),
-    const Answer(text: 'Dong dep trai', isCorrect: true),
-    const Answer(text: 'Dong dep trai', isCorrect: true),
-    const Answer(text: 'Dong dep trai', isCorrect: true),
-    
-  ])
+    const Answer(text: 'Câu trả lời 1', isCorrect: true),
+    const Answer(text: 'Câu trả lời 2', isCorrect: true),
+    const Answer(text: 'Câu trả lời 3', isCorrect: true),
+    const Answer(text: 'Câu trả lời 4', isCorrect: true),
+  ]
+  )
 ];
