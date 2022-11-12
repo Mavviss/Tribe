@@ -24,7 +24,7 @@ class _ShopState extends State<Shop> {
           ),
           child: Column(
             children: [
-              SizedBox(
+             const  SizedBox(
                 height: 40,
               ),
               Row(
@@ -42,7 +42,7 @@ class _ShopState extends State<Shop> {
                         "images/left-arrow.png",
                         height: 30,
                       )),
-                  Text("CỬA HÀNG TRIBE",
+                  const Text("CỬA HÀNG TRIBE",
                       style: TextStyle(
                           color: Colors.green,
                           fontSize: 20,
@@ -55,7 +55,7 @@ class _ShopState extends State<Shop> {
                 child: Container(
                   height: size.height / 15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     border: Border.all(width: 1),
                   ),
                   child: Row(
@@ -65,12 +65,12 @@ class _ShopState extends State<Shop> {
                         "images/leaf.png",
                         height: size.width / 15,
                       ),
-                      Text("5"),
+                      const Text("5"),
                       Container(
                         width: size.height / 7,
                         height: size.width / 10,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(1000),
                               bottomRight: Radius.circular(1000)),
                           border: Border.all(width: 2),
@@ -87,7 +87,7 @@ class _ShopState extends State<Shop> {
                 child: Container(
                   height: size.height / 15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     border: Border.all(width: 1),
                   ),
                   child: Row(
@@ -102,7 +102,7 @@ class _ShopState extends State<Shop> {
                         width: size.height / 7,
                         height: size.width / 10,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(1000),
                               bottomRight: Radius.circular(1000)),
                           border: Border.all(width: 2),
@@ -119,7 +119,7 @@ class _ShopState extends State<Shop> {
                 child: Container(
                   height: size.height / 15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     border: Border.all(width: 1),
                   ),
                   child: Row(
@@ -129,12 +129,12 @@ class _ShopState extends State<Shop> {
                         "images/leaf.png",
                         height: size.width / 15,
                       ),
-                      Text("65"),
+                      const Text("65"),
                       Container(
                         width: size.height / 7,
                         height: size.width / 10,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(1000),
                               bottomRight: Radius.circular(1000)),
                           border: Border.all(width: 2),
@@ -151,7 +151,7 @@ class _ShopState extends State<Shop> {
                 child: Container(
                   height: size.height / 15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     border: Border.all(width: 1),
                   ),
                   child: Row(
@@ -166,7 +166,7 @@ class _ShopState extends State<Shop> {
                         width: size.height / 7,
                         height: size.width / 10,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(1000),
                               bottomRight: Radius.circular(1000)),
                           border: Border.all(width: 2),
