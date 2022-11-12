@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import './forgot_password.dart';
 import './register.dart';
+import './Home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -27,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/background.png'),
+                    image: AssetImage('./images/background.jpg'),
                     fit: BoxFit.cover)),
             child: Center(
               child: Column(
@@ -89,7 +90,14 @@ class _LoginPageState extends State<LoginPage> {
                   Center(
                     child: OutlinedButton(
                       onPressed: () {
-                        //function đăng nhập đễ đây
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => const Start()),
+                            ),
+                          );
+                        });
                       },
                       child: Text(
                         'Sign in',

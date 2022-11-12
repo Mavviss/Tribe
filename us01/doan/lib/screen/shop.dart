@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'chonchedo.dart';
+import './chonchedo.dart';
 
 class Shop extends StatefulWidget {
   const Shop({super.key});
@@ -24,11 +24,11 @@ class _ShopState extends State<Shop> {
           ),
           child: Column(
             children: [
-             const  SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Row(
-                children:  [
+                children: [
                   MaterialButton(
                       onPressed: () {
                         Navigator.pop(
