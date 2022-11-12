@@ -28,7 +28,7 @@ class _RankState extends State<Rank> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
           actions: [
             IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back),)
           ],
@@ -60,6 +60,7 @@ class _RankState extends State<Rank> {
             )),),
           ]
         ),
+        
       ),
     );
   }
