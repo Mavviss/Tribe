@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+
+import 'information.dart';
 //màn chơi có nhiều bộ câu hỏi
 class SelectType extends StatefulWidget {
   const SelectType({super.key});
@@ -112,18 +114,21 @@ class _SelectTypeState extends State<SelectType> {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(12),
-                width: 70,
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(240, 240, 240, 1),
-                  border: Border.all(width: 1),
+              GestureDetector(
+                onTap: () => {
+                   Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const  Inforplayer())),
+                },
+                child: Container(
+                  width: 70,
+                  height: 45,
+                  child: const CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+                  ),
                 ),
-                child: const CircleAvatar(
-        backgroundImage: NetworkImage(
-            "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-      ),
               ),
               Container(
                 padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),

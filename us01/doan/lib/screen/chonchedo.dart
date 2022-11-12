@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:doan/screen/information.dart';
 import 'package:flutter/material.dart';
 // import 'package:tribe_duan/layout/battle.dart';
 // import 'package:tribe_duan/layout/chonmanchoi.dart';
@@ -139,13 +140,21 @@ class _PicklevelState extends State<Picklevel> {
                   ),
                 ),
               ),
-              Container(
-                width: 70,
-                height: 45,
-                child: const CircleAvatar(
-        backgroundImage: NetworkImage(
-            "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-      ),
+              GestureDetector(
+                onTap: () => {
+                   Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const  Inforplayer())),
+                },
+                child: Container(
+                  width: 70,
+                  height: 45,
+                  child: const CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+                  ),
+                ),
               ),
               Container(
                 padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),
