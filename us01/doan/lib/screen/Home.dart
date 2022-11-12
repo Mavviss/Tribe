@@ -3,16 +3,13 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 //import 'package:tribe_duan/layout/rank.dart';
 //import 'package:tribe_duan/layout/shop.dart';
-
 //import 'chonchedo.dart';
 
 class Start extends StatefulWidget {
   const Start({super.key});
-
   @override
   State<Start> createState() => _StartState();
 }
-
 class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
