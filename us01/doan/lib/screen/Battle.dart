@@ -67,23 +67,6 @@ class _BattleState extends State<Battle> {
     );
   }
 
-  GestureDetector _listAnswer() {
-    return GestureDetector(
-      onTap: () => {},
-      child: Container(
-        height: MediaQuery.of(context).size.height / 1.5,
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: questions.length,
-          itemBuilder: ((context, index) {
-            final _question = questions[index];
-            return buildQuestion(_question);
-          }),
-        ),
-      ),
-    );
-  }
-
   Padding buildQuestion(Question question) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
