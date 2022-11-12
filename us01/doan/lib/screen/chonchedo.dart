@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 // import 'package:tribe_duan/layout/chonmanchoi.dart';
 // import 'package:tribe_duan/layout/single.dart';
 import '../main.dart';
+import 'chonmanchoi.dart';
 
 //chế độ đối kháng hoặc chơi đơn
 class Picklevel extends StatefulWidget {
@@ -23,7 +24,7 @@ class _PicklevelState extends State<Picklevel> {
         child: Container(
           height: size.height,
           width: size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
           ),
@@ -49,12 +50,12 @@ class _PicklevelState extends State<Picklevel> {
                       ),
                       child: MaterialButton(
                         onPressed: (() {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => const SelectType(),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SelectType(),
+                            ),
+                          );
                         }),
                         color: Colors.white,
                         child: const Text(
