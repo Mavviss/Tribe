@@ -13,7 +13,11 @@ class Inforplayer extends StatefulWidget {
 
 class _InforplayerState extends State<Inforplayer> {
   @override
+  
   Widget build(BuildContext context) {
+    
+  var height = MediaQuery.of(context).size.height;
+  var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -24,7 +28,7 @@ class _InforplayerState extends State<Inforplayer> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(top:20, right: 300),
                 child: MaterialButton(
                         onPressed: () {
                           Navigator.pop(
@@ -39,11 +43,12 @@ class _InforplayerState extends State<Inforplayer> {
                           height: 30,
                         )),
               ),
+
               Padding(
-                padding: const EdgeInsets.only(top: 100),
+                padding: const EdgeInsets.only(top: 70),
                 child: Container(
-                      width: MediaQuery.of(context).size.width/1,
-                    height: MediaQuery.of(context).size.height/6,
+                      width: width/2,
+                      height: height/6,
                       child: const CircleAvatar(
                         backgroundImage: NetworkImage(
                             "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
@@ -51,14 +56,32 @@ class _InforplayerState extends State<Inforplayer> {
                     ),
                   
               ),
+              SizedBox(height: height/10,),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text('Họ và tên'),
-                  Icon(Icons.edit)
+
+                  Text('playername'),
                 ],
               ),
-              TextField(),
-              Text(' Ngày tạo tài khoản: ')
+              SizedBox(height: height/25,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text('Giới tính'),
+                    Text('Nam'),
+                ],
+              ),SizedBox(height: height/25,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text('Hạng xếp hạng'),
+                    Text('Thách đấu'),
+                ],
+              ),
+              SizedBox(height: height/5,),
+              ElevatedButton(onPressed: (){}, child: Text('Lịch sử'),)
             ],
           ),
         ),

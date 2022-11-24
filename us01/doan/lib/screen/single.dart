@@ -13,22 +13,36 @@ class Single extends StatefulWidget {
 }
 
 class _SingleState extends State<Single> {
-  int timeleft = 30;
-  void startTime() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      if (timeleft > 0) {
-        setState(() {
-          timeleft--;
-        });
-      } else {
-        timer.cancel();
-      }
-    });
-  }
+  
+// int seconds = ValuesGame.seconds;
+//   Timer? timer;
+//   startTimer() {
+//     timer = Timer.periodic(Duration(seconds: 1), (timer) {
+//       setState(() {
+//         seconds--;
+//         if (seconds < 0 && heart > 0) {
+//           Question++;
+//           heart--;
+
+//           seconds = ValuesGame.seconds;
+//         }
+//         if (heart <= 0) {
+//           heart = 0;
+//           seconds = 0;
+//           isGameOver = true;
+//         }
+//       });
+//     });
+//   }
+bool isGameOver = false;  
 
   @override
+  // void initState() {
+  //   super.initState();
+  //   quiz = getQuiz();
+  //   startTimer();
+  // }
   Widget build(BuildContext context) {
-   
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -55,7 +69,7 @@ class _SingleState extends State<Single> {
                               "images/leaf.png",
                               height: 20,
                             ),
-                            Text("$timeleft"),
+                            // Text("$timeleft"),
                           ],
                         ),
                       ],
@@ -154,7 +168,7 @@ class _SingleState extends State<Single> {
                 "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
           ),
         ),
-        Text(timeleft.toString()),
+        // Text(timeleft.toString()),
         Row(
           children: [
             Image.asset(

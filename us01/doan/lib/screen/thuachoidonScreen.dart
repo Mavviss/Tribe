@@ -67,6 +67,19 @@ class LoseSingle extends StatelessWidget {
                             ),
                           ],
                         ),
+                         SizedBox(height: 20,),
+                        Row(
+                          children: [
+                            Text('Bạn có muốn chơi lại không',),
+                            
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            ElevatedButton(onPressed: (){}, child: Text('Có')),
+                            ElevatedButton(onPressed: (){}, child: Text('Không')),
+                          ],
+                        )
                       ],
                     ),
                 ),

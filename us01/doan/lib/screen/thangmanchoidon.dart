@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class LoseSingle extends StatelessWidget {
-  const LoseSingle({super.key});
+class WinSingle extends StatelessWidget {
+  const WinSingle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class LoseSingle extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 200),
                   margin: EdgeInsets.all(100),
-                  child: Image.asset('images/Anotherday.png'),
+                  child: Image.asset('images/Congrats.png'),
                   height: MediaQuery.of(context).size.height / 2,
                 ),
                 Padding(
@@ -67,6 +67,19 @@ class LoseSingle extends StatelessWidget {
                             ),
                           ],
                         ),
+                        SizedBox(height: 20,),
+                        Row(
+                          children: [
+                            Text('Bạn có muốn chơi lại không',),
+                            
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            ElevatedButton(onPressed: (){}, child: Text('Có')),
+                            ElevatedButton(onPressed: (){}, child: Text('Không')),
+                          ],
+                        )
                       ],
                     ),
                 ),
