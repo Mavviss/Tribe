@@ -58,13 +58,7 @@ class _SelectTypeState extends State<SelectType> {
                   itemBuilder: ((context, index) {
                     return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: GestureDetector(
-                          onTap: () {
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              const  Single()));
-                                },
+                       
                           child: GestureDetector(
                             onTap: () {
                               setState(() {
@@ -85,7 +79,7 @@ class _SelectTypeState extends State<SelectType> {
                                   child: Center(child: Text(level[index], )),
                             ),
                           ),
-                        ));
+                        );
                   }),
                 ),
               )
