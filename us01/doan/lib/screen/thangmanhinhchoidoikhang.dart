@@ -83,6 +83,14 @@ class WinBattle extends StatelessWidget {
                 ),
               ],
             ),
+            Text('Bạn có muón chơi tiếp không?'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(onPressed: () {}, child: Text('Có')),
+                ElevatedButton(onPressed: () {}, child: Text('Không')),
+              ],
+            )
           ],
         ),
       ),

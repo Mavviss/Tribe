@@ -54,7 +54,7 @@ class LoseBattle extends StatelessWidget {
                             decoration: const BoxDecoration(
                               border: Border(
                                 right:
-                                    BorderSide(color: Colors.black, width: 1),
+                                    BorderSide(color: Colors.black, width: 2),
                               ),
                             ),
                             child: Column(
@@ -83,6 +83,14 @@ class LoseBattle extends StatelessWidget {
                 ),
               ],
             ),
+            Text('Bạn có muón chơi tiếp không?'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(onPressed: () {}, child: Text('Có')),
+                ElevatedButton(onPressed: () {}, child: Text('Không')),
+              ],
+            )
           ],
         ),
       ),
