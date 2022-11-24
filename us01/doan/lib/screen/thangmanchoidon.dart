@@ -83,8 +83,8 @@ class WinSingle extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text('Có')),
                 ElevatedButton(onPressed: () {}, child: Text('Không')),
+                ElevatedButton(onPressed: () {}, child: Text('Có')),
               ],
             )
           ],

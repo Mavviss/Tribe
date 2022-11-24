@@ -16,7 +16,7 @@ class LoseBattle extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 200),
                   margin: EdgeInsets.all(100),
-                  child: Image.asset('images/Congrats.png'),
+                  child: Image.asset('images/Anotherday.png'),
                   height: MediaQuery.of(context).size.height / 2,
                 ),
                 Padding(
@@ -32,25 +32,14 @@ class LoseBattle extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-                          ),
-                          CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-                          ),
-                        ],
-                      ),
+                      
                       SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
                           Container(
+                            padding: EdgeInsets.only(right: 10),
                             decoration: const BoxDecoration(
                               border: Border(
                                 right:
@@ -59,20 +48,32 @@ class LoseBattle extends StatelessWidget {
                             ),
                             child: Column(
                               children: [
-                                Text('Điểm'),
-                                Text('Điểm'),
-                                Text('Điểm'),
-                                Text('Điểm'),
+                                CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+                          ),
+                          SizedBox(height: 20,),
+                                Text('Điểm:            3'),
+                                Text('Điểm:            3'),
+                                Text('Điểm:            3'),
+                                Text('Điểm:            3'),
                               ],
                             ),
                           ),
                           Container(
+                            
+                            padding: EdgeInsets.only(left: 10),
                             child: Column(
                               children: [
-                                Text('Điểm'),
-                                Text('Điểm'),
-                                Text('Điểm'),
-                                Text('Điểm'),
+                                CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+                          ),
+                          SizedBox(height: 20,),
+                                Text('Điểm:            3'),
+                                Text('Điểm:            3'),
+                                Text('Điểm:            3'),
+                                Text('Điểm:            3'),
                               ],
                             ),
                           ),
@@ -87,8 +88,8 @@ class LoseBattle extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text('Có')),
                 ElevatedButton(onPressed: () {}, child: Text('Không')),
+                ElevatedButton(onPressed: () {}, child: Text('Có')),
               ],
             )
           ],
