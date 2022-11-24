@@ -25,7 +25,7 @@ class WinSingle extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(right: 70),
-                          child: Text('ÔI KHÔNG! BẠN ĐÃ THUA RỒI :(',),
+                          child: Text('YAH! CHÚC MỪNG BẠN ĐÃ CHIẾN THẮNG',),
                         ),
                         SizedBox(height: 20,),
                         Row(

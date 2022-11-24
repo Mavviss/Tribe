@@ -26,7 +26,7 @@ class WinBattle extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 70),
                         child: Text(
-                          'YAH! CHÚC MỪNG BẠN ĐÃ GIÀNH CHIẾN THẮNG',
+                          'WOW! BẠN GIỎI THẬT ĐẤY!',
                         ),
                       ),
                       SizedBox(
