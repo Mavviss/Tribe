@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class registerPage extends StatefulWidget {
@@ -20,9 +19,9 @@ class _registerPageState extends State<registerPage> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/background.png'),
+                    image: AssetImage('./images/background.jpg'),
                     fit: BoxFit.cover)),
             child: Center(
               child: Column(

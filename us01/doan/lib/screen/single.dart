@@ -3,14 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../models/question.dart';
+import 'chonchedo.dart';
 
-class Battle extends StatefulWidget {
-  const Battle({super.key});
+class Single extends StatefulWidget {
+  const Single({super.key});
+
   @override
-  State<Battle> createState() => _BattleState();
+  State<Single> createState() => _SingleState();
 }
 
-class _BattleState extends State<Battle> {
+class _SingleState extends State<Single> {
   int timeleft = 30;
   void startTime() {
     Timer.periodic(Duration(seconds: 1), (timer) {
@@ -26,7 +28,6 @@ class _BattleState extends State<Battle> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -46,7 +47,7 @@ class _BattleState extends State<Battle> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text("Câu hỏi: Tự nhiên"),
+                        const Text("Câu hỏi: Tự nhiên"),
                         Row(
                           children: [
                             Image.asset(
@@ -60,9 +61,58 @@ class _BattleState extends State<Battle> {
                     )),
               ),
               _listAnswer(),
+              _help(),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Picklevel(),
+                      ),
+                    );
+                  },
+                  child: Text("back")),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Row _help() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        MaterialButton(
+          onPressed: () {},
+          color: Color.fromRGBO(240, 240, 240, 1),
+          child: Text("50:50"),
+        ),
+        MaterialButton(
+          onPressed: () {},
+          color: Color.fromRGBO(240, 240, 240, 1),
+          child: Text("+30s"),
+        ),
+        MaterialButton(
+          onPressed: () {},
+          color: Color.fromRGBO(240, 240, 240, 1),
+          child: Text("Next "),
+        ),
+      ],
+    );
+  }
+
+  SizedBox _listAnswer() {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 1.5,
+      child: PageView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: questions.length,
+        itemBuilder: ((context, index) {
+          final _question = questions[index];
+
+          return buildQuestion(_question);
+        }),
       ),
     );
   }
@@ -85,33 +135,54 @@ class _BattleState extends State<Battle> {
           const SizedBox(
             height: 20,
           ),
-          // Expanded(
-          //     child: Answer(
-          //   question: question,
-          // ))
+          Expanded(
+              child: Answer(
+            question: question,
+          ))
         ],
       ),
     );
   }
 
-  Row top_layout() {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-      const CircleAvatar(
-        backgroundImage: NetworkImage(
-            "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+  Container top_layout() {
+    return Container(
+      height: MediaQuery.of(context).size.height / 18,
+      decoration: BoxDecoration(
+        border: Border.all(width: 2),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(20),
+        ),
+        color: const Color.fromRGBO(240, 240, 240, 1),
       ),
-      Text(timeleft.toString()),
-      const CircleAvatar(
-        backgroundImage: NetworkImage(
-            "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-      ),
-    ]);
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        const Padding(
+          padding: EdgeInsets.all(2),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+          ),
+        ),
+        Text(timeleft.toString()),
+        Row(
+          children: [
+            Image.asset(
+              "images/Heart.png",
+              width: 20,
+              height: 25,
+              color: Colors.red,
+            ),
+            Text("1"),
+          ],
+        )
+      ]),
+    );
   }
 }
 
 class Answer extends StatelessWidget {
   final Question question;
   const Answer({super.key, required this.question});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -123,11 +194,9 @@ class Answer extends StatelessWidget {
                 child: Container(
                   height: 45,
                   padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(240, 240, 240, 1),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    border: Border.all(width: 1, color: Colors.black),
-                  ),
+                  decoration: const BoxDecoration(
+                      color: Color.fromRGBO(240, 240, 240, 1),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Row(
                     children: [
                       Text(
