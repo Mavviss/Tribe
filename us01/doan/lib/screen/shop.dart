@@ -15,270 +15,742 @@ class _ShopState extends State<Shop> {
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(80),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-              border: Border.all(
-                color: Colors.black,
-                width: 1.0,
-              ),
-            ),
-            padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-            child: Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        CircleAvatar(),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'something',
-                          style: TextStyle(color: Colors.black),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Row(children: [
-                      Icon(
-                        Icons.heart_broken_sharp,
-                        color: Colors.black,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        'time',
-                        style: TextStyle(color: Colors.black),
-                      )
-                    ]),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.live_help,
-                          color: Colors.black,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Hearth',
-                          style: TextStyle(color: Colors.black),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Icon(
-                      Icons.settings,
+        appBar: AppBar(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 1.3,
+                  height: MediaQuery.of(context).size.height / 12,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    border: Border.all(
                       color: Colors.black,
+                      width: 1.0,
                     ),
-                  )
-                ],
+                  ),
+                  child: Text(
+                    'Cửa hàng',
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  ),
+                  alignment: Alignment.center,
+                ),
               ),
-            ),
-          ),
-        ),
-        body: SafeArea(
-          child: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/background.jpg"),
-                  fit: BoxFit.cover),
-            ),
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 40,
-                ),
-                Row(
-                  children: [
-                    MaterialButton(
-                        onPressed: () {
-                          Navigator.pop(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Picklevel(),
-                            ),
-                          );
-                        },
-                        child: Image.asset(
-                          "images/left-arrow.png",
-                          height: 30,
-                        )),
-                    const Text("CỬA HÀNG TRIBE",
-                        style: TextStyle(
-                            color: Colors.green,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w200))
-                  ],
-                ),
-                SizedBox(height: size.height / 7),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: size.height / 15,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(width: 1),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          "images/leaf.png",
-                          height: size.width / 15,
-                        ),
-                        const Text("5"),
-                        Container(
-                          width: size.height / 7,
-                          height: size.width / 10,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(1000),
-                                bottomRight: Radius.circular(1000)),
-                            border: Border.all(width: 2),
-                          ),
-                          child: const Center(child: Text("10.000VND")),
-                        )
-                      ],
+              //container shop lớn
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 1.0,
                     ),
                   ),
-                ),
-                SizedBox(height: size.height / 19),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: size.height / 15,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(width: 1),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //row lớn bao
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          "images/leaf.png",
-                          height: size.width / 15,
-                        ),
-                        const Text("30"),
+                        //bất đầuuuuuuuuuuuuuuuuuuuuuuuuu
                         Container(
-                          width: size.height / 7,
-                          height: size.width / 10,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(1000),
-                                bottomRight: Radius.circular(1000)),
-                            border: Border.all(width: 2),
+                          //row item
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Column(children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.3,
+                                height: MediaQuery.of(context).size.height / 28,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'combo',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(height: 10),
+                              Stack(children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            //hình ảnh
+                                            CircleAvatar(),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    1.7,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(8)),
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: const [
+                                                      Icon(
+                                                        Icons.flood,
+                                                        semanticLabel: 'x10',
+                                                      ),
+                                                      Icon(Icons
+                                                          .heart_broken_sharp),
+                                                    ]),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 50,
+                                  left: 200,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 6,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '200.000đ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    alignment: Alignment.center,
+                                  ),
+                                )
+                              ]),
+                            ]),
                           ),
-                          child: const Center(child: Text("50.000VND")),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: size.height / 19),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: size.height / 15,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(width: 1),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          "images/leaf.png",
-                          height: size.width / 15,
                         ),
-                        const Text("65"),
+                        //kết thúccccccccccccccccc
+                        SizedBox(height: 28),
                         Container(
-                          width: size.height / 7,
-                          height: size.width / 10,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(1000),
-                                bottomRight: Radius.circular(1000)),
-                            border: Border.all(width: 2),
+                          //row item
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Column(children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.3,
+                                height: MediaQuery.of(context).size.height / 28,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'combo',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(height: 10),
+                              Stack(children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            CircleAvatar(),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    1.7,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(8)),
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: const [
+                                                      Icon(
+                                                        Icons.flood,
+                                                        semanticLabel: 'x10',
+                                                      ),
+                                                      Icon(Icons
+                                                          .heart_broken_sharp),
+                                                    ]),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 50,
+                                  left: 200,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 6,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '200.000đ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    alignment: Alignment.center,
+                                  ),
+                                )
+                              ]),
+                            ]),
                           ),
-                          child: const Center(child: Text("100.000VND")),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: size.height / 19),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: size.height / 15,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(width: 1),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          "images/leaf.png",
-                          height: size.width / 15,
                         ),
-                        const Text("120"),
+                        //kết thúcccccccccccccccccccc
+                        SizedBox(height: 28),
                         Container(
-                          width: size.height / 7,
-                          height: size.width / 10,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(1000),
-                                bottomRight: Radius.circular(1000)),
-                            border: Border.all(width: 2),
+                          //row item
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Column(children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.3,
+                                height: MediaQuery.of(context).size.height / 28,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'combo',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(height: 10),
+                              Stack(children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            CircleAvatar(),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    1.7,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(8)),
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: const [
+                                                      Icon(
+                                                        Icons.flood,
+                                                        semanticLabel: 'x10',
+                                                      ),
+                                                      Icon(Icons
+                                                          .heart_broken_sharp),
+                                                    ]),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 50,
+                                  left: 200,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 6,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '200.000đ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    alignment: Alignment.center,
+                                  ),
+                                )
+                              ]),
+                            ]),
                           ),
-                          child: const Center(child: Text("200.000VND")),
-                        )
-                      ],
-                    ),
-                  ),
+                        ),
+                        //kết thúcccccccccccccccccccc
+                        SizedBox(height: 28),
+                        Container(
+                          //row item
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Column(children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.3,
+                                height: MediaQuery.of(context).size.height / 28,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'combo',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(height: 10),
+                              Stack(children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            CircleAvatar(),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    1.7,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(8)),
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: const [
+                                                      Icon(
+                                                        Icons.flood,
+                                                        semanticLabel: 'x10',
+                                                      ),
+                                                      Icon(Icons
+                                                          .heart_broken_sharp),
+                                                    ]),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 50,
+                                  left: 200,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 6,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '200.000đ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    alignment: Alignment.center,
+                                  ),
+                                )
+                              ]),
+                            ]),
+                          ),
+                        ),
+                        //kết thúcccccccccccccccccccc
+                        SizedBox(height: 28),
+                        Container(
+                          //row item
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Column(children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.3,
+                                height: MediaQuery.of(context).size.height / 28,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'combo',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(height: 10),
+                              Stack(children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            CircleAvatar(),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    1.7,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(8)),
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: const [
+                                                      Icon(
+                                                        Icons.flood,
+                                                        semanticLabel: 'x10',
+                                                      ),
+                                                      Icon(Icons
+                                                          .heart_broken_sharp),
+                                                    ]),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 50,
+                                  left: 200,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 6,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '200.000đ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    alignment: Alignment.center,
+                                  ),
+                                )
+                              ]),
+                            ]),
+                          ),
+                        ),
+                        //kết thúcccccccccccccccccccc
+                        SizedBox(height: 28),
+                        Container(
+                          //row item
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Column(children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.3,
+                                height: MediaQuery.of(context).size.height / 28,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'combo',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(height: 10),
+                              Stack(children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            CircleAvatar(),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    1.7,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(8)),
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: const [
+                                                      Icon(
+                                                        Icons.flood,
+                                                        semanticLabel: 'x10',
+                                                      ),
+                                                      Icon(Icons
+                                                          .heart_broken_sharp),
+                                                    ]),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 50,
+                                  left: 200,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 6,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      '200.000đ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    alignment: Alignment.center,
+                                  ),
+                                )
+                              ]),
+                            ]),
+                          ),
+                        ),
+                        //kết thúcccccccccccccccccccc
+                      ]),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

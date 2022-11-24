@@ -11,9 +11,11 @@ class _HeaderHomeState extends State<HeaderHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
-        child: Container(
+      appBar: AppBar(
+        brightness: Brightness.dark,
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 70,
+        flexibleSpace: Container(
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -26,91 +28,101 @@ class _HeaderHomeState extends State<HeaderHome> {
             ),
           ),
           padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-          child: Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1.0,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      CircleAvatar(),
-                      SizedBox(
-                        width: 5,
+        ),
+        actions: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1.0,
                       ),
-                      Text(
-                        'something',
-                        style: TextStyle(color: Colors.black),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1.0,
+                    ),
+                    child: Row(
+                      children: [
+                        CircleAvatar(),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'something',
+                          style: TextStyle(color: Colors.black),
+                        )
+                      ],
                     ),
                   ),
-                  child: Row(children: [
-                    Icon(
-                      Icons.heart_broken_sharp,
-                      color: Colors.black,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1.0,
+                      ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      'time',
-                      style: TextStyle(color: Colors.black),
-                    )
-                  ]),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1.0,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
+                    child: Row(children: [
                       Icon(
-                        Icons.live_help,
+                        Icons.heart_broken_sharp,
                         color: Colors.black,
                       ),
                       SizedBox(
                         width: 5,
                       ),
                       Text(
-                        'Hearth',
+                        'time',
                         style: TextStyle(color: Colors.black),
                       )
-                    ],
+                    ]),
                   ),
-                ),
-                Container(
-                  child: Icon(
-                    Icons.settings,
-                    color: Colors.black,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.live_help,
+                          color: Colors.black,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Hearth',
+                          style: TextStyle(color: Colors.black),
+                        )
+                      ],
+                    ),
                   ),
-                )
-              ],
+                  Container(
+                    child: Icon(
+                      Icons.settings,
+                      color: Colors.black,
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        ),
+          )
+        ],
       ),
     );
   }
+}
+
+Widget HomeSrceen() {
+  return HomeSrceen();
 }
