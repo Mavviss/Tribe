@@ -28,6 +28,18 @@ class _SelectTypeState extends State<SelectType> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    int timeleft = 30;
+    void startTime() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      if (timeleft > 0) {
+        setState(() {
+          timeleft--;
+        });
+      } else {
+        timer.cancel();
+      }
+    });
+  }
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -39,7 +51,7 @@ class _SelectTypeState extends State<SelectType> {
             children: [
               top_layout(),
               Padding(
-                        padding: const EdgeInsets.fromLTRB(8.0, 150, 8, 8),
+                padding: const EdgeInsets.fromLTRB(8.0, 150, 8, 8),
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: level.length,
@@ -53,18 +65,25 @@ class _SelectTypeState extends State<SelectType> {
                                           builder: (BuildContext context) =>
                                               const  Single()));
                                 },
-                          child: Container(
-                            width: 200,
-                            height: 60,
-                            padding: const EdgeInsets.all(10),
-                            decoration:  BoxDecoration(
-                              
-                               border: Border.all(color: Colors.black, width: 2),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                    ),
-                                    
-                                child: Center(child: Text(level[index], )),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                startTime();
+                              });
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Single(),));
+                            },
+                            child: Container(
+                              width: 200,
+                              height: 60,
+                              padding: const EdgeInsets.all(10),
+                              decoration:  BoxDecoration(
+                                 border: Border.all(color: Colors.black, width: 2),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                      ),
+                                      
+                                  child: Center(child: Text(level[index], )),
+                            ),
                           ),
                         ));
                   }),

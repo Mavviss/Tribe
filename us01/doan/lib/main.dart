@@ -1,4 +1,6 @@
 import 'package:doan/screen/chonchedo.dart';
+import 'package:doan/screen/chonmanchoi.dart';
+import 'package:doan/screen/single.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -8,6 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Picklevel());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SelectType());
   }
 }

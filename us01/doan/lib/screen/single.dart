@@ -145,17 +145,8 @@ class _SingleState extends State<Single> {
     );
   }
 
-  Container top_layout() {
-    return Container(
-      height: MediaQuery.of(context).size.height / 18,
-      decoration: BoxDecoration(
-        border: Border.all(width: 2),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(20),
-        ),
-        color: const Color.fromRGBO(240, 240, 240, 1),
-      ),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+  Row top_layout() {
+    return  Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         const Padding(
           padding: EdgeInsets.all(2),
           child: CircleAvatar(
@@ -175,7 +166,7 @@ class _SingleState extends State<Single> {
             Text("1"),
           ],
         )
-      ]),
+    ]
     );
   }
 }
