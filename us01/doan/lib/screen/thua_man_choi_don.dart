@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'information.dart';
+
 class LoseBattle extends StatelessWidget {
   const LoseBattle({super.key});
 
@@ -32,7 +34,6 @@ class LoseBattle extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      
                       SizedBox(
                         height: 20,
                       ),
@@ -48,11 +49,29 @@ class LoseBattle extends StatelessWidget {
                             ),
                             child: Column(
                               children: [
-                                CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-                          ),
-                          SizedBox(height: 20,),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Inforplayer(),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    height:
+                                        MediaQuery.of(context).size.height / 15,
+                                    width:
+                                        MediaQuery.of(context).size.width / 5,
+                                    child: CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
                                 Text('Điểm:            3'),
                                 Text('Điểm:            3'),
                                 Text('Điểm:            3'),
@@ -61,15 +80,32 @@ class LoseBattle extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            
                             padding: EdgeInsets.only(left: 10),
                             child: Column(
                               children: [
-                                CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-                          ),
-                          SizedBox(height: 20,),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Inforplayer(),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    height:
+                                        MediaQuery.of(context).size.height / 15,
+                                    width:
+                                        MediaQuery.of(context).size.width / 5,
+                                    child: CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
                                 Text('Điểm:            3'),
                                 Text('Điểm:            3'),
                                 Text('Điểm:            3'),
