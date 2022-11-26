@@ -1,3 +1,4 @@
+import 'package:doan/screen/history.dart';
 import 'package:flutter/material.dart';
 import 'components/header_home.dart';
 import './screen/shop.dart';
@@ -9,6 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Shop());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: History());
   }
 }
