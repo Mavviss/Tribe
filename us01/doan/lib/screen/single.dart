@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
 import '../models/question.dart';
 import 'chonchedo.dart';
 
@@ -13,7 +11,6 @@ class Single extends StatefulWidget {
 }
 
 class _SingleState extends State<Single> {
-  
 // int seconds = ValuesGame.seconds;
 //   Timer? timer;
 //   startTimer() {
@@ -34,8 +31,8 @@ class _SingleState extends State<Single> {
 //       });
 //     });
 //   }
-bool isGameOver = false;  
 
+  bool isGameOver = false;
   @override
   // void initState() {
   //   super.initState();
@@ -57,36 +54,35 @@ bool isGameOver = false;
               ),
               top_layout(),
               SizedBox(
+                height: 20,
+              ),
+              const Text("Câu hỏi: Tự nhiên"),
+              SizedBox(height: 10,),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
                 child: Container(
-                    margin: EdgeInsets.all(19),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const Text("Câu hỏi: Tự nhiên"),
-                        Row(
-                          children: [
-                            Image.asset(
-                              "images/leaf.png",
-                              height: 20,
-                            ),
-                            // Text("$timeleft"),
-                          ],
-                        ),
-                      ],
-                    )),
+                  width: double.infinity,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xFF3F4768), width: 1),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: LayoutBuilder(builder: (context,constrains) => Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(gradient: LinearGradient(colors: [
+                      Colors.grey,
+                    ])),
+                  )),
+                ),
+              ),
+               SizedBox(
+                height: 20,
               ),
               _listAnswer(),
+              SizedBox(
+                height: 20,
+              ),
               _help(),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Picklevel(),
-                      ),
-                    );
-                  },
-                  child: Text("back")),
             ],
           ),
         ),
@@ -109,7 +105,7 @@ bool isGameOver = false;
           child: Text("+30s"),
         ),
         MaterialButton(
-          onPressed: () {},          
+          onPressed: () {},
           color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("Next "),
         ),
@@ -119,13 +115,12 @@ bool isGameOver = false;
 
   SizedBox _listAnswer() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height/1.5,
+      height: MediaQuery.of(context).size.height / 1.5,
       child: PageView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: questions.length,
         itemBuilder: ((context, index) {
           final _question = questions[index];
-
           return buildQuestion(_question);
         }),
       ),
@@ -138,15 +133,15 @@ bool isGameOver = false;
       child: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height/5,
-            width: MediaQuery.of(context).size.width/1,
-      decoration: BoxDecoration(
-          border: Border.all(width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: Column(children: [
-        Text(question.quest),
-      ]),
-    ),
+            height: MediaQuery.of(context).size.height / 5,
+            width: MediaQuery.of(context).size.width / 1,
+            decoration: BoxDecoration(
+                border: Border.all(width: 2),
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: Column(children: [
+              Text(question.quest),
+            ]),
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -160,28 +155,27 @@ bool isGameOver = false;
   }
 
   Row top_layout() {
-    return  Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        const Padding(
-          padding: EdgeInsets.all(2),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(
-                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-          ),
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+      const Padding(
+        padding: EdgeInsets.all(2),
+        child: CircleAvatar(
+          backgroundImage: NetworkImage(
+              "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
         ),
-        // Text(timeleft.toString()),
-        Row(
-          children: [
-            Image.asset(
-              "images/Heart.png",
-              width: 20,
-              height: 25,
-              color: Colors.red,
-            ),
-            Text("1"),
-          ],
-        )
-    ]
-    );
+      ),
+      // Text(timeleft.toString()),
+      Row(
+        children: [
+          Image.asset(
+            "images/Heart.png",
+            width: 20,
+            height: 25,
+            color: Colors.red,
+          ),
+          Text("1"),
+        ],
+      )
+    ]);
   }
 }
 
@@ -193,7 +187,8 @@ class Answer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: question.answers.map(
+        children: question.answers
+            .map(
               (answer) => Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -211,7 +206,8 @@ class Answer extends StatelessWidget {
                   ),
                 ),
               ),
-            ).toList(),
+            )
+            .toList(),
       ),
     );
   }
