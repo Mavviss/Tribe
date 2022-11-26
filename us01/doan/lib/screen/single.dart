@@ -57,25 +57,36 @@ class _SingleState extends State<Single> {
                 height: 20,
               ),
               const Text("Câu hỏi: Tự nhiên"),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Container(
                   width: double.infinity,
-                  height: 20,
+                  height: 30,
                   decoration: BoxDecoration(
                     border: Border.all(color: Color(0xFF3F4768), width: 1),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: LayoutBuilder(builder: (context,constrains) => Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(gradient: LinearGradient(colors: [
-                      Colors.grey,
-                    ])),
-                  )),
+                  child: Stack(children: [
+                    LayoutBuilder(
+                      builder: (context, constrains) => Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(color: Colors.grey),
+                      ),
+                    ),
+                    Positioned.fill(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text('30'),
+                          ]),
+                    ),
+                  ]),
                 ),
               ),
-               SizedBox(
+              SizedBox(
                 height: 20,
               ),
               _listAnswer(),
