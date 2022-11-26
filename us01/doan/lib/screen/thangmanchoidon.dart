@@ -23,55 +23,54 @@ class WinSingle extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(90, 350, 0, 0),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 70),
-                          child: Text('YAH! CHÚC MỪNG BẠN ĐÃ CHIẾN THẮNG',),
+                         const Padding(
+                          padding: EdgeInsets.only(right: 100),
+                          child: Text('YAH! CHÚC MỪNG BẠN ĐÃ CHIẾN THẮNG'),
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
                         Row(
-                          children: [
-                            Text('Level',),
+                          children: const[
+                            Text('Level'),
                             Padding(
-                              padding: const EdgeInsets.only(left: 100),
-                              child: Text('Level',),
+                              padding: EdgeInsets.only(left: 100),
+                              child: Text('Level'),
                             ),
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 2),
                         Row(
-                          children: [
-                            Text('Level',),
+                          children: const[
+                            Text('Level'),
                             Padding(
-                              padding: const EdgeInsets.only(left: 100),
-                              child: Text('Level',),
+                              padding:  EdgeInsets.only(left: 100),
+                              child: Text('Level'),
                             ),
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
                         Row(
-                          children: [
+                          children: const[
                             Text('Level',),
                             Padding(
-                              padding: const EdgeInsets.only(left: 100),
-                              child: Text('Level',),
+                              padding:  EdgeInsets.only(left: 100),
+                              child: Text('Level'),
                             ),
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20),
                         Row(
-                          children: [
+                          children: const [
                             Text('Level',),
                             Padding(
-                              padding: const EdgeInsets.only(left: 100),
-                              child: Text('Level',),
+                              padding: EdgeInsets.only(left: 100),
+                              child: Text('Level'),
                             ),
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20),
                         Row(
-                          children: [
-                            Text('Bạn có muốn chơi lại không',),
-                            
+                          children: const [
+                            Text('Bạn có muốn chơi lại không'),
                           ],
                         ),
                       ],
@@ -79,12 +78,12 @@ class WinSingle extends StatelessWidget {
                 ),
               ],
             ),
-            Text('Bạn có muón chơi tiếp không?'),
+            const Text('Bạn có muón chơi tiếp không?'),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text('Không')),
-                ElevatedButton(onPressed: () {}, child: Text('Có')),
+                ElevatedButton(onPressed: () {}, child: const Text('Không')),
+                ElevatedButton(onPressed: () {}, child: const Text('Có')),
               ],
             )
           ],

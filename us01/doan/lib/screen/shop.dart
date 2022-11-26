@@ -42,7 +42,7 @@ class _ShopState extends State<Shop> {
                         "images/left-arrow.png",
                         height: 30,
                       )),
-                  const Text("CỬA HÀNG TRIBE",
+                      const Text("CỬA HÀNG TRIBE",
                       style: TextStyle(
                           color: Colors.green,
                           fontSize: 20,
