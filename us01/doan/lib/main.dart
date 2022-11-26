@@ -1,6 +1,7 @@
+import 'package:doan/screen/history.dart';
 import 'package:flutter/material.dart';
-import '../screen/login.dart';
-import './screen/history.dart';
+import 'components/header_home.dart';
+import './screen/shop.dart';
 
 void main() => runApp(const MyApp());
 
