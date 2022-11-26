@@ -59,7 +59,7 @@ class _BattleState extends State<Battle> {
                       ],
                     )),
               ),
-              _listAnswer(),
+              // _listAnswer(),
             ],
           ),
         ),
