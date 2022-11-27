@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../screen/login.dart';
 import './screen/history.dart';
 import './screen/header.dart';
+import './screen/appbar_custom.dart';
+import './screen/bottom.dart';
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -10,6 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, 
-      home: header());
+      home: Scaffold(
+        appBar: Header(Color_: Colors.transparent,),
+        bottomNavigationBar: bottom(),
+        body: Center(),
+      ),
+      
+      );
   }
 }
