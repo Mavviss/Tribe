@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, 
       home: Scaffold(
         appBar: Header(Color_: Colors.transparent,),
-        bottomNavigationBar: bottom(),
+       // bottomNavigationBar: bottom(),
         body: Center(),
       ),
       
