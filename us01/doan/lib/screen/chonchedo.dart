@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import './battle.dart';
 import './chonmanchoi.dart';
 import './single.dart';
-
 //chế độ đối kháng hoặc chơi đơn
 class Picklevel extends StatefulWidget {
   const Picklevel({super.key});

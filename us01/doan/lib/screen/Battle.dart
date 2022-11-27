@@ -23,7 +23,6 @@ class _BattleState extends State<Battle> {
       }
     });
   }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -59,7 +58,7 @@ class _BattleState extends State<Battle> {
                       ],
                     )),
               ),
-              _listAnswer(),
+             // _listAnswer(),
             ],
           ),
         ),

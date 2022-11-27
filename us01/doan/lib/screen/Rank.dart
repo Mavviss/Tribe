@@ -68,21 +68,12 @@ class _RankState extends State<Rank> {
                   fit: BoxFit.cover),
             ),
             child: ListView.builder(
-<<<<<<< HEAD
               itemCount: player.length,
               itemBuilder: (context, index) =>  Singlerank(
               child: player[index],
             )),),
           ]
         ),
-=======
-                itemCount: player.length,
-                itemBuilder: (context, index) => Singlerank(
-                      child: player[index],
-                    )),
-          ),
-        ]),
->>>>>>> origin/main
       ),
     );
   }
