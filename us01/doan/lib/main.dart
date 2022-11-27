@@ -6,6 +6,7 @@ import 'package:doan/screen/rank.dart';
 import 'package:doan/screen/single.dart';
 import 'package:doan/screen/thangmanhinhchoidoikhang.dart';
 import 'package:doan/screen/thua_man_choi_don.dart';
+import 'package:doan/screen/wait_battle.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SelectType(),
+      home: Waitbattle(),
     );
   }
 }
