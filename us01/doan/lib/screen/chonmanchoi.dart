@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:doan/screen/shop.dart';
+
 import 'package:doan/screen/single.dart';
 import 'package:flutter/material.dart';
 
@@ -146,10 +146,10 @@ class _SelectTypeState extends State<SelectType> {
               ),
               GestureDetector(
                 onTap: () => {
-                   Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              const  Shop())),
+                  //  Navigator.of(context).pushReplacement(
+                  //                     MaterialPageRoute(
+                  //                         builder: (BuildContext context) =>
+                  //                             const  Shop())),
                 },
                 child: Container(
                 padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),

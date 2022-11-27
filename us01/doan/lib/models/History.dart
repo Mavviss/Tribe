@@ -42,6 +42,5 @@ class BattleRank extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

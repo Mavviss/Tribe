@@ -1,3 +1,4 @@
+import 'package:doan/screen/battle.dart';
 import 'package:doan/screen/chonchedo.dart';
 import 'package:doan/screen/chonmanchoi.dart';
 import 'package:doan/screen/information.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: History(),
+      home: SelectType(),
     );
   }
 }

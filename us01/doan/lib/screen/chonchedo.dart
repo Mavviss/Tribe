@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:doan/screen/information.dart';
-import 'package:doan/screen/shop.dart';
 import 'package:flutter/material.dart';
 // import 'package:tribe_duan/layout/battle.dart';
 // import 'package:tribe_duan/layout/chonmanchoi.dart';
@@ -159,10 +158,10 @@ class _PicklevelState extends State<Picklevel> {
               ),
               GestureDetector(
                 onTap: () => {
-                   Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              const  Shop())),
+                  //  Navigator.of(context).pushReplacement(
+                  //                     MaterialPageRoute(
+                  //                         builder: (BuildContext context) =>
+                  //                             const  Shop())),
                 },
                 child: Container(
                 padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),

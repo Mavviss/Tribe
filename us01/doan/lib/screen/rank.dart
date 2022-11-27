@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../models/RankModel.dart';
+import '../models/History.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
