@@ -123,8 +123,22 @@ class LoseBattle extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text('Không')),
-                ElevatedButton(onPressed: () {}, child: Text('Có')),
+                OutlinedButton(onPressed: () {}, child: Text('Không'),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: Size(150,50),
+                  side: BorderSide(width: 1),
+                  primary: Colors.black,
+                ),
+                
+                ),
+                OutlinedButton(onPressed: () {}, child: Text('Có'),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: Size(150,50),
+                  side: BorderSide(width: 1),
+                  primary: Colors.black,
+                ),
+                
+                ),               
               ],
             )
           ],

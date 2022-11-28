@@ -146,8 +146,6 @@ class appBar extends StatelessWidget {
                       ],
                     ),
                   ),
-
-
                   //container chứa coin
                   Container(
                     child: Stack(
