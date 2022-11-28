@@ -1,3 +1,4 @@
+import 'package:doan/screen/Rank.dart';
 import 'package:flutter/material.dart';
 import './rank.dart';
 import './shop.dart';
@@ -14,64 +15,96 @@ class _StartState extends State<Start> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        body: SafeArea(
-      child: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
-        ),
-        child: Center(
-          child: Column(children: [
-            SizedBox(
-              height: size.height / 3,
-            ),
-            Text("Chào mừng bạn đến với bộ tộc TriBe"),
-            SizedBox(
-              height: size.height / 20,
-            ),
-            MaterialButton(
-              onPressed: (() {
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(left: 25),
+            child: GestureDetector(
+              child: Icon(
+                Icons.settings,
+                size: 50,
+              ),
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Picklevel(),
+                    builder: ((context) =>
+                        const Shop()), // sửa lại đường dẫnnnnnn
                   ),
                 );
-              }),
-              height: size.height / 20,
-              minWidth: size.height / 5,
-              color: const Color.fromRGBO(240, 240, 240, 1),
-              child: const Icon(Icons.play_circle_outline),
+              },
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Shop()));
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 25),
+            child: GestureDetector(
+              child: Icon(
+                Icons
+                    .expand_circle_down, // hông biết dấu chấm thann keyword nàooooo
+                size: 50,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) =>
+                        const Shop()), // sửa lại đường dẫnnnnnn
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("images/background.jpg"), fit: BoxFit.fill),
+          ),
+          child: Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                'Chào mừng bạn đến với bộ tộc TriBe',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(height: 30),
+              SizedBox(
+                height: 70,
+                width: 200,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) =>
+                            const Picklevel()), // sửa lại đường dẫnnnnnn
+                      ),
+                    );
                   },
-                  child: Image.asset(
-                    "images/Shop.png",
-                    width: size.width / 8,
+                  child: Icon(
+                    Icons.play_circle_outline_sharp,
+                    color: Colors.black,
+                    size: 50,
+                  ),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                          side: BorderSide(
+                              color: Colors.black,
+                              width: 1,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(50)),
+                    ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Rank()));
-                  },
-                  child: Image.asset(
-                    "images/Champion.png",
-                    height: size.height / 2.2,
-                    width: size.width / 8,
-                  ),
-                ),
-              ],
-            ),
-          ]),
+              )
+            ]),
+          ),
         ),
       ),
-    ));
+    );
   }
 }
