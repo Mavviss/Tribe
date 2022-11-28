@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import '../components/answr_widget.dart';
 import '../models/question.dart';
 import 'chonchedo.dart';
 
@@ -33,7 +34,7 @@ class _SingleState extends State<Single> {
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
+                image: AssetImage("images/background.jpg"), fit: BoxFit.fill),
           ),
           child: Column(
             children: [
@@ -47,12 +48,19 @@ class _SingleState extends State<Single> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const Text("Câu hỏi: Tự nhiên"),
+                        const Text(
+                          "Câu hỏi: Tự nhiên",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
                         Row(
                           children: [
-                            Image.asset(
-                              "images/leaf.png",
-                              height: 20,
+                            SizedBox(
+                              width: 33,
+                              height: 25,
+                              child: SvgPicture.asset(
+                                "images/leaf.svg",
+                              ),
                             ),
                             Text("$timeleft"),
                           ],
@@ -62,16 +70,21 @@ class _SingleState extends State<Single> {
               ),
               _listAnswer(),
               _help(),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Picklevel(),
-                      ),
-                    );
-                  },
-                  child: Text("back")),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Picklevel(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "Trở về",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
+                ),
+              ),
             ],
           ),
         ),
@@ -84,17 +97,26 @@ class _SingleState extends State<Single> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            //chức năng trợ giúp
+          },
           color: Color.fromRGBO(240, 240, 240, 1),
-          child: Text("50:50"),
+          child: Text(
+            "50:50",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
         MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            //chức năng trợ giúp
+          },
           color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("+30s"),
         ),
         MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            //chức năng trợ giúp
+          },
           color: Color.fromRGBO(240, 240, 240, 1),
           child: Text("Next "),
         ),
@@ -117,6 +139,7 @@ class _SingleState extends State<Single> {
     );
   }
 
+// khung câu hỏi nằm ở đây
   Padding buildQuestion(Question question) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -144,6 +167,7 @@ class _SingleState extends State<Single> {
     );
   }
 
+// header của thằng đồng nó nằm ở đây
   Container top_layout() {
     return Container(
       height: MediaQuery.of(context).size.height / 18,
@@ -179,6 +203,7 @@ class _SingleState extends State<Single> {
   }
 }
 
+// mấy câu trả lời nó nằm ở đây
 class Answer extends StatelessWidget {
   final Question question;
   const Answer({super.key, required this.question});
@@ -194,13 +219,20 @@ class Answer extends StatelessWidget {
                 child: Container(
                   height: 45,
                   padding: const EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(240, 240, 240, 1),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(240, 240, 240, 1),
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
+                  ),
                   child: Row(
                     children: [
                       Text(
                         answer.text,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
                       )
                     ],
                   ),

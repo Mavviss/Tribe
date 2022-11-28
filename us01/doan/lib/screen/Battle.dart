@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../models/question.dart';
+import 'chonchedo.dart';
 
 class Battle extends StatefulWidget {
   const Battle({super.key});
+
   @override
   State<Battle> createState() => _BattleState();
 }
@@ -36,33 +38,57 @@ class _BattleState extends State<Battle> {
           ),
           child: Column(
             children: [
+              SizedBox(
+                height: 10,
+              ),
+              progess_bar(),
               const SizedBox(
                 height: 20,
               ),
               top_layout(),
               SizedBox(
-                child: Container(
-                    margin: EdgeInsets.all(19),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text("Câu hỏi: Tự nhiên"),
-                        Row(
-                          children: [
-                            Image.asset(
-                              "images/leaf.png",
-                              height: 20,
-                            ),
-                            Text("$timeleft"),
-                          ],
-                        ),
-                      ],
-                    )),
+                height: 10,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 200),
+                child: Text(
+                  "Câu hỏi: 1/20",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
               _listAnswer(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Padding progess_bar() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      child: Container(
+        width: double.infinity,
+        height: 30,
+        decoration: BoxDecoration(
+          border: Border.all(color: Color(0xFF3F4768), width: 1),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Stack(children: [
+          LayoutBuilder(
+            builder: (context, constrains) => Container(
+              width: double.infinity,
+              decoration: BoxDecoration(color: Colors.grey),
+            ),
+          ),
+          Positioned.fill(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Text('30'),
+                ]),
+          ),
+        ]),
       ),
     );
   }
@@ -102,25 +128,42 @@ class _BattleState extends State<Battle> {
           const SizedBox(
             height: 20,
           ),
-          // Expanded(
-          //     child: Answer(
-          //   question: question,
-          // ))
+          Expanded(
+            child: Answer(
+              question: question,
+            ),
+          ),
         ],
       ),
     );
   }
 
+//avatar 2 thằng chơi
   Row top_layout() {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-      const CircleAvatar(
-        backgroundImage: NetworkImage(
-            "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+      Column(
+        children: const [
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text('Score'),
+        ],
       ),
-      Text(timeleft.toString()),
-      const CircleAvatar(
-        backgroundImage: NetworkImage(
-            "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+      Column(
+        children: const [
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text('Score'),
+        ],
       ),
     ]);
   }
@@ -129,6 +172,7 @@ class _BattleState extends State<Battle> {
 class Answer extends StatelessWidget {
   final Question question;
   const Answer({super.key, required this.question});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -142,13 +186,18 @@ class Answer extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(240, 240, 240, 1),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    border: Border.all(width: 1, color: Colors.black),
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
                   ),
                   child: Row(
                     children: [
                       Text(
                         answer.text,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
                       )
                     ],
                   ),

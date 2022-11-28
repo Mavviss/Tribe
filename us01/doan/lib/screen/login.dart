@@ -1,5 +1,3 @@
-// ignore_for_file: sort_child_properties_last, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import './forgot_password.dart';
 import './register.dart';
@@ -94,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: ((context) => const Start()),
+                              builder: ((context) => const Home()),
                             ),
                           );
                         });

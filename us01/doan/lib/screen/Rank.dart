@@ -1,15 +1,17 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import './chonchedo.dart';
+import '../screen/history.dart';
 import '../models/ListSingle.dart';
 
-class Rank extends StatefulWidget {
-  const Rank({super.key});
+class History extends StatefulWidget {
+  const History({super.key});
+
   @override
-  State<Rank> createState() => _RankState();
+  State<History> createState() => _HistoryState();
 }
 
-class _RankState extends State<Rank> {
+class _HistoryState extends State<History> {
   final List player = [
     "player 1",
     "player 2",
@@ -24,20 +26,13 @@ class _RankState extends State<Rank> {
     "player 3",
     "player 4",
   ];
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: true,
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back),
-            )
-          ],
-          title: const Text("Ranking"),
           centerTitle: true,
           bottom: TabBar(tabs: [
             Tab(
@@ -48,53 +43,55 @@ class _RankState extends State<Rank> {
             )
           ]),
         ),
-        body: TabBarView(children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/background.jpg"),
-                  fit: BoxFit.cover),
+        body: SafeArea(
+          child: TabBarView(children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("images/background.jpg"),
+                    fit: BoxFit.cover),
+              ),
+              child: ListView.builder(
+                  itemCount: player.length,
+                  itemBuilder: (context, index) => Singlerank(
+                        child: player[index],
+                      )),
             ),
-            child: ListView.builder(
-                itemCount: player.length,
-                itemBuilder: (context, index) => Singlerank(
-                      child: player[index],
-                    )),
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/background.jpg"),
-                  fit: BoxFit.cover),
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("images/background.jpg"),
+                    fit: BoxFit.cover),
+              ),
+              child: ListView.builder(
+                  itemCount: player.length,
+                  itemBuilder: (context, index) => BattleRank(
+                        child: player[index],
+                      )),
             ),
-            child: ListView.builder(
-                itemCount: player.length,
-                itemBuilder: (context, index) => Singlerank(
-                      child: player[index],
-                    )),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }
 
   ListView _lstPlayer() {
     return ListView.builder(
-      shrinkWrap: true,
-      itemCount: player.length,
-      itemBuilder: ((context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: 40,
-            padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            child: Text(player[index]),
-          ),
-        );
-      }),
-    );
+        shrinkWrap: true,
+        itemCount: player.length,
+        itemBuilder: ((context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 40,
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(100)),
+                border: Border.all(width: 1),
+              ),
+              child: Text(player[index]),
+            ),
+          );
+        }));
   }
 }
