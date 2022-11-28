@@ -1,5 +1,4 @@
-import 'dart:ffi';
-
+import 'package:doan/screen/Rank.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,10 +24,6 @@ class _HistoryState extends State<History> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        backgroundColor: Colors.cyan,
-        leading: Icon(Icons.keyboard_return_outlined),
-
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
@@ -235,253 +230,60 @@ class _HistoryState extends State<History> with TickerProviderStateMixin {
           ),
         ],
       ),
-      bottomNavigationBar: Container(
-          color: Colors.cyan,
-          child: TabBar(
-            // màu những icon khi dc chọn vào
-            labelColor: Colors.black,
-            //màu icon
-            unselectedLabelColor: Colors.red,
-
-            controller: _controller,
-            tabs: const <Widget>[
-              Tab(
-                text: "chơi đơn",
-                icon: Icon(Icons.home),
-              ),
-              Tab(
-                text: "chơi đối kháng",
-                icon: Icon(Icons.shop),
-              ),
-            ],
-          )),
-      body: TabBarView(
-        controller: _controller,
-        children: const <Widget>[
-          Center(child: ChoiDon()),
-          Center(
-            child: Text('cửa hàng',
-                style:
-                    TextStyle(color: Colors.cyan, fontWeight: FontWeight.bold)),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ChoiDon extends StatelessWidget {
-  const ChoiDon({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 20, 4, 0),
-      child: Container(
-        width: MediaQuery.of(context).size.width / 1.5,
-        height: MediaQuery.of(context).size.height,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-          border: Border.all(
-            color: Colors.black,
-            width: 1.0,
-          ),
-        ),
-        child: Container(
-          child: SingleChildScrollView(
-            child: Column(
-              //copy chỗ này nè
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: 48,
-                              backgroundImage: NetworkImage(
-                                  'https://cdngarenanow-a.akamaihd.net/webmain/static/pss/lol/items_splash/akali_13.jpg'),
-                            ),
+            image: DecorationImage(
+                image: AssetImage('images/background.jpg'), fit: BoxFit.fill)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            SizedBox(height: 20),
+            const Text(
+              'Lịch sử đấu',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                  decoration: TextDecoration.none,
+                  decorationColor: Colors.black),
+            ),
+            DefaultTabController(
+              length: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    child: TabBar(
+                        labelColor: Colors.cyan,
+                        unselectedLabelColor: Colors.black,
+                        tabs: [
+                          Tab(
+                            text: 'chơi đơn',
                           ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            children: <Widget>[
-                              Text('Tên tài khoản'),
-                              Text('highsouce'),
-                              Text('thời gian chơi'),
-                              Text('màn chơi')
-                            ],
-                          ),
-
-                        )
-                      ],
-                    ),
+                          Tab(
+                            text: 'chơi dối kháng',
+                          )
+                        ]),
                   ),
-                ),
-                //kết thúc
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: 48,
-                              backgroundImage: NetworkImage(
-                                  'https://cdngarenanow-a.akamaihd.net/webmain/static/pss/lol/items_splash/akali_13.jpg'),
-                            ),
-                          ),
+                  Container(
+                      height: 500,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(color: Colors.grey, width: 0.5),
                         ),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            children: <Widget>[
-                              Text('Tên tài khoản'),
-                              Text('highsouce'),
-                              Text('thời gian chơi'),
-                              Text('màn chơi')
-                            ],
+                      ),
+                      child: TabBarView(
+                        children: <Widget>[
+                          Container(
+                            child: LichSuChoiDon(),
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: 48,
-                              backgroundImage: NetworkImage(
-                                  'https://cdngarenanow-a.akamaihd.net/webmain/static/pss/lol/items_splash/akali_13.jpg'),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            children: <Widget>[
-                              Text('Tên tài khoản'),
-                              Text('highsouce'),
-                              Text('thời gian chơi'),
-                              Text('màn chơi')
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: 48,
-                              backgroundImage: NetworkImage(
-                                  'https://cdngarenanow-a.akamaihd.net/webmain/static/pss/lol/items_splash/akali_13.jpg'),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            children: <Widget>[
-                              Text('Tên tài khoản'),
-                              Text('highsouce'),
-                              Text('thời gian chơi'),
-                              Text('màn chơi')
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: 48,
-                              backgroundImage: NetworkImage(
-                                  'https://cdngarenanow-a.akamaihd.net/webmain/static/pss/lol/items_splash/akali_13.jpg'),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            children: <Widget>[
-                              Text('Tên tài khoản'),
-                              Text('highsouce'),
-                              Text('thời gian chơi'),
-                              Text('màn chơi')
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                )
-              ],
                           Container(
                             child: LichSuChoiDoiKhang(),
                           )
-            )],)
+                        ],
                       ))
                 ],
               ),
@@ -644,7 +446,6 @@ class _itemlichsuchoidoikhangState extends State<itemlichsuchoidoikhang> {
                   ),
                 ],
               ),
->>>>>>> us02
             ),
             Expanded(
               flex: 2,
