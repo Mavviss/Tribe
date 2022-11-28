@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import './chonchedo.dart';
+//import './chonchedo.dart';
 import '../models/ListSingle.dart';
 
 class Rank extends StatefulWidget {
