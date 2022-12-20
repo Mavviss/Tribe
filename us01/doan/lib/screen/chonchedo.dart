@@ -1,185 +1,116 @@
+import 'dart:async';
+import 'package:doan/components/appbar_custom.dart';
 import 'package:doan/screen/information.dart';
-import 'package:doan/screen/shop.dart';
+import 'package:doan/screen/wait_battle.dart';
 import 'package:flutter/material.dart';
-import './battle.dart';
-import './chonmanchoi.dart';
-import './single.dart';
+import '../components/bottom.dart';
+import 'Battle.dart';
+import 'chonmanchoi.dart';
 //chế độ đối kháng hoặc chơi đơn
 class Picklevel extends StatefulWidget {
   const Picklevel({super.key});
-
   @override
   State<Picklevel> createState() => _PicklevelState();
 }
-
 class _PicklevelState extends State<Picklevel> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          height: size.height,
-          width: size.width,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
-          ),
-          child: Column(
-            children: [
-              top_layout(),
-              Padding(
-                padding: const EdgeInsets.only(top: 250),
-                child: Column(
-                  children: [
-                    const Text("Chọn chế độ chơi"),
-                    Container(
+      extendBodyBehindAppBar: true,
+      body: Container(
+        height: size.height,
+        width: size.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("images/background.jpg"), fit: BoxFit.fill),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 250),
+              child: Column(
+                children: [
+                  const Text(
+                    "Chọn chế độ chơi",
+                    style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectType(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      child: Center(
+                          child: Text(
+                        'Chơi đơn',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      )),
                       height: size.width / 4,
                       width: size.height / 3,
-                      decoration: const BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 1,
-                            offset: Offset(8.3, 8), // Shadow position
-                          ),
-                        ],
-                      ),
-                      child: MaterialButton(
-                        onPressed: (() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SelectType(),
-                            ),
-                          );
-                        }),
-                        color: Colors.white,
-                        child: const Text(
-                          "Chơi đơn",
-                          style: TextStyle(fontSize: 20),
-                        ),
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                         gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0xffCDC1C5),
+                                      Color(0xffCDC1C5)
+                                    ]),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 16, 86, 34), width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Container(
-                        height: size.width / 4,
-                        width: size.height / 3,
-                        decoration: const BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(offset: Offset(8.3, 8), blurRadius: 1),
-                          ],
-                        ),
-                        child: MaterialButton(
-                          onPressed: (() {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Battle(),
-                              ),
-                            );
-                          }),
-                          color: Colors.white,
-                          child: const Text(
-                            "Chơi đối kháng",
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Padding top_layout() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: Container(
-        height: 54,
-        decoration: BoxDecoration(
-            border: Border.all(width: 2),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            color: Color.fromRGBO(225, 225, 225, 1)),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 2, bottom: 2),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(20, 8, 20, 5),
-                  width: 100,
-                  height: 45,
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                      ),
-                      Text(
-                        "1",
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    // onTap: () {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const Waitbattle(),
+                    //     ),
+                    //   );
+                    // },
+                    child: Container(
+                      child: Center(
+                          child: Text(
+                        'Chơi đối kháng',
                         style: TextStyle(fontSize: 20),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () => {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext context) => const Inforplayer())),
-                },
-                child: Container(
-                  width: 70,
-                  height: 45,
-                  child: const CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () => {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext context) => const Shop())),
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2),
-                  width: 100,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    color: Color.fromRGBO(240, 240, 240, 1),
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "images/leaf.png",
-                        height: 20,
+                      )),
+                      height: size.width / 4,
+                      width: size.height / 3,
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0xffCDC1C5),
+                                      Color(0xffCDC1C5)
+                                    ]),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 16, 86, 34), width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
-                      const Text("full")
-                    ],
+                    ),
                   ),
-                ),
+                ],
               ),
-              Icon(Icons.settings)
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

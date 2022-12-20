@@ -19,10 +19,15 @@ class _forgotPasswordPageState extends State<forgotPasswordPage> {
     super.dispose();
   }
 
-
+//hông hỉu future để làm gì
+// à này là kiểm tra trong cở sở dữ liệu
+// Future PasswordReset() async{
+// await  Fireb
+// }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,

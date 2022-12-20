@@ -84,7 +84,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget{
                                   border: Border.all(width: 1),
                                   borderRadius: BorderRadius.circular(7)),
                               child: Image.network(
-                                ("https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-1/278377002_3147115085544105_8279216043983986656_n.jpg?stp=dst-jpg_s200x200&_nc_cat=106&ccb=1-7&_nc_sid=7206a8&_nc_ohc=K4q5CEP3Je8AX-knRaH&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCCCoDM_3SvKyYSK5zptfJ7i9sNmBl59BMFBXvE-6m78g&oe=6384D8E6"),
+                                ("https://i.pinimg.com/236x/bf/b6/20/bfb6205ed1721c0e1b57e744c3e51b48.jpg"),
                                 width: 30,
                               ),
                             ),

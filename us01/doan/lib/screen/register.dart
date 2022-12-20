@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class registerPage extends StatefulWidget {
@@ -9,10 +10,15 @@ class registerPage extends StatefulWidget {
 
 class _registerPageState extends State<registerPage> {
   TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmController = TextEditingController();
+  //khai báo thực thể đối tượng
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -75,7 +81,7 @@ class _registerPageState extends State<registerPage> {
                           padding: const EdgeInsets.only(left: 20.0),
                           child: SingleChildScrollView(
                             child: TextField(
-                              controller: passwordController,
+                              controller: emailController,
                               obscureText: true,
                               decoration: const InputDecoration(
                                   border: InputBorder.none, hintText: 'Email'),
@@ -118,7 +124,7 @@ class _registerPageState extends State<registerPage> {
                           padding: const EdgeInsets.only(left: 20.0),
                           child: SingleChildScrollView(
                             child: TextField(
-                              controller: passwordController,
+                              controller: passwordConfirmController,
                               obscureText: true,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
@@ -131,22 +137,45 @@ class _registerPageState extends State<registerPage> {
                     //sign in button
                     SizedBox(height: 50),
                     Center(
-                      child: OutlinedButton(
-                        onPressed: () {
-                          //function đăng nhập đễ đây
-                        },
-                        child: Text(
-                          'Đăng kí',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        style: OutlinedButton.styleFrom(
-                            side: BorderSide(color: Colors.black),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16)),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 150.0, vertical: 8),
-                            minimumSize: Size(200, 45)),
-                      ),
+                      // child: OutlinedButton(
+                      //   onPressed: () async {
+                      //     //function đăng nhập đễ đây
+                      //     try {
+                      //       final newUser =
+                      //           _auth.createUserWithEmailAndPassword(
+                      //               email: emailController.text,
+                      //               password: passwordController.text);
+                      //       //kiểm tra xem có tạo dc user hông
+                      //       if (newUser != null ||
+                      //           passwordConfirmController.text.toLowerCase() ==
+                      //               passwordController.text.toLowerCase()) {
+                      //         Navigator.pop(context, 'Đăng kí thành công');
+                      //       } else {
+                      //         final snackBar = SnackBar(
+                      //             content: Text(
+                      //                 'tài khoản này không hợp lệ hoặc xác nhận mật khẩu sai'));
+                      //         ScaffoldMessenger.of(context)
+                      //             .showSnackBar(snackBar);
+                      //       }
+                      //     } catch (e) {
+                      //       final snackBar =
+                      //           SnackBar(content: Text('Có lỗi xảy ra '));
+                      //       ScaffoldMessenger.of(context)
+                      //           .showSnackBar(snackBar);
+                      //     }
+                      //   },
+                      //   child: Text(
+                      //     'Đăng kí',
+                      //     style: TextStyle(color: Colors.black),
+                      //   ),
+                      //   style: OutlinedButton.styleFrom(
+                      //       side: BorderSide(color: Colors.black),
+                      //       shape: RoundedRectangleBorder(
+                      //           borderRadius: BorderRadius.circular(16)),
+                      //       padding: EdgeInsets.symmetric(
+                      //           horizontal: 150.0, vertical: 8),
+                      //       minimumSize: Size(200, 45)),
+                      // ),
                     ),
                     //forgot password
                   ]),

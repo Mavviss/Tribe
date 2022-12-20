@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "614393523434",
+    "project_id": "doantribe-46fa3",
+    "storage_bucket": "doantribe-46fa3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614393523434:android:2230c74328a656d4a3bb93",
+        "android_client_info": {
+          "package_name": "com.example.doan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614393523434-jbbqfsitujldu8ll5s2m6vtu65c3rf95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWx1ntLfIUZxuAryg3qVdm0GdmVzWcQaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614393523434-jbbqfsitujldu8ll5s2m6vtu65c3rf95.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
