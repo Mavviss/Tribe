@@ -47,7 +47,6 @@ class _registerPageState extends State<registerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -56,7 +55,7 @@ class _registerPageState extends State<registerPage> {
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('./images/background.jpg'),
-                    fit: BoxFit.cover)),
+                    fit: BoxFit.fill)),
             child: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

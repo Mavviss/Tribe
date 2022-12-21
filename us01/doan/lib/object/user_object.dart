@@ -1,8 +1,8 @@
 class user {
   final String name;
   final String email;
-  final int coreSignle;
-  final int coreBattle;
+  final int ? coreSignle;
+  final int? coreBattle;
   final String password;
 
   user(this.name, this.email, this.coreSignle, this.coreBattle, this.password);

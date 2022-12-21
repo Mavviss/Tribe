@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -40,17 +39,15 @@ class _forgotPasswordPageState extends State<forgotPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('./images/background.jpg'),
-                    fit: BoxFit.cover)),
+                    fit: BoxFit.fill)),
             child: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -107,7 +104,7 @@ class _forgotPasswordPageState extends State<forgotPasswordPage> {
                       child: OutlinedButton(
                         onPressed: () {
                           //function đăng nhập đễ đây
-PasswordReset();
+                          PasswordReset();
                         },
                         child: Text(
                           'Lấy lại mật khẩu',
