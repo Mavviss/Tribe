@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:doan/components/appbar_custom.dart';
 import 'package:doan/screen/single.dart';
 import 'package:flutter/material.dart';
-
-import 'information.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../components/bottom.dart';
 
 //màn chơi có nhiều bộ câu hỏi
 class SelectType extends StatefulWidget {
@@ -39,56 +39,75 @@ class _SelectTypeState extends State<SelectType> {
     }
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: Header(Color_: Colors.transparent),
-      body: SafeArea(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 150, 8, 8),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: level.length,
-                  itemBuilder: ((context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            startTime();
-                          });
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Single(),
-                              ));
-                        },
-                        child: Container(
-                          width: 200,
-                          height: 60,
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 2),
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          child: Center(
-                              child: Text(
-                            level[index],
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          )),
-                        ),
-                      ),
-                    );
-                  }),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xffCDC1C5), Color(0xffCDC1C5)]),
+        ),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Positioned(
+                  top: 62,
+                  child: Row(
+                    children: [
+                      IconButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          icon: SvgPicture.asset(
+                            "images/backcome.svg",
+                            width: 20,
+                          ))
+                    ],
+                  ),
                 ),
-              )
-            ],
-          ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 150, 8, 8),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: level.length,
+                    itemBuilder: ((context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              startTime();
+                            });
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Single(),
+                                ));
+                          },
+                          child: Container(
+                            width: 200,
+                            height: 60,
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black, width: 2),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Center(
+                                child: Text(
+                              level[index],
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            )),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );

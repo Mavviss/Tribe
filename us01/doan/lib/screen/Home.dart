@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doan/screen/Rank.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../components/appbar_custom.dart';
 import '../components/bottom.dart';
@@ -17,21 +19,33 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // var name;
+    // FirebaseFirestore.instance
+    //     .collection('user')
+    //     .where('email', isEqualTo: FirebaseAuth.instance.currentUser!.email)
+    //     .get()
+    //     .then(
+    //   (value) {
+    //     var user = value.docs.first;
+    //     name = user['username'];
+    //   },
+    // );
     return SafeArea(
       child: Scaffold(
         appBar: Header(Color_: Colors.transparent),
+        bottomNavigationBar: bottom(),
         body: SafeArea(
           child: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("images/background.jpg"), fit: BoxFit.fill),
+                  image: AssetImage("images/back2.jfif"), fit: BoxFit.fill),
             ),
             child: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Chào mừng bạn đến với bộ tộc TriBe',
+                      'Chào mừng  đến với bộ tộc TriBe',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
@@ -73,4 +87,20 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+  //  get() async {
+  //   var name;
+  //   FirebaseFirestore.instance
+  //       .collection('user')
+  //       .where('email', isEqualTo: FirebaseAuth.instance.currentUser!.email)
+  //       .get()
+  //       .then(
+  //     (value) {
+  //       var user = value.docs.first;
+  //       name = user['username'];
+  //     },
+  //   );
+
+  //   return name;
+  // }
 }

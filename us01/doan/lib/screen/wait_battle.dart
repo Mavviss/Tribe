@@ -9,7 +9,6 @@ import '../components/bottom.dart';
 
 class Waitbattle extends StatefulWidget {
   const Waitbattle({super.key});
-
   @override
   State<Waitbattle> createState() => _WaitbattleState();
 }
@@ -17,135 +16,139 @@ class Waitbattle extends StatefulWidget {
 class _WaitbattleState extends State<Waitbattle> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: Header(Color_: Colors.transparent),
-        body: Container(
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: Header(Color_: Colors.transparent),
+      body: Container(
           decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/background.jpg"), fit: BoxFit.fill),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromARGB(255, 102, 95, 97),
+                  Color.fromARGB(255, 165, 152, 157)
+                ]),
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 30),
-            child: Stack(children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(30, 120, 0, 450),
-                child: Row(
+          child: Stack(
+            children: [
+              Positioned(
+                top: 35,
+                child: IconButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: SvgPicture.asset(
+                      "images/backcome.svg",
+                      width: 20,
+                    )),
+              ),
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Positioned(
-                      top: 0,
-                      child: GestureDetector(
-                        onTap: () {
-                          // ontap hình avatar
-                        },
-                        //chỗ bắt đầu
-                        child: Container(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0xffb92b27),
-                                    Color(0xff1565c0)
-                                  ]),
-                              border: Border.all(
-                                width: 3,
-                              ),
-                              borderRadius: BorderRadius.circular(7)),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                border: GradientBoxBorder(
-                                  gradient: LinearGradient(colors: [
-                                    Color(0xffee9ca7),
-                                    Color(0xffffdde1)
-                                  ]),
-                                  width: 6,
-                                ),
-                                borderRadius: BorderRadius.circular(7)),
+                    Row(
+                      children: [
+                        Positioned(
+                          top: 0,
+                          child: GestureDetector(
+                            onTap: () {
+                              // ontap hình avatar
+                            },
+                            //chỗ bắt đầu
                             child: Container(
                               decoration: BoxDecoration(
-                                  border: Border.all(width: 3),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      colors: [
+                                        Color(0xffb92b27),
+                                        Color(0xff1565c0)
+                                      ]),
+                                  border: Border.all(
+                                    width: 3,
+                                  ),
                                   borderRadius: BorderRadius.circular(7)),
-                              child: Image.network(
-                                ("https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-1/278377002_3147115085544105_8279216043983986656_n.jpg?stp=dst-jpg_s200x200&_nc_cat=106&ccb=1-7&_nc_sid=7206a8&_nc_ohc=K4q5CEP3Je8AX-knRaH&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCCCoDM_3SvKyYSK5zptfJ7i9sNmBl59BMFBXvE-6m78g&oe=6384D8E6"),
-                                width: 100,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: GradientBoxBorder(
+                                      gradient: LinearGradient(colors: [
+                                        Color(0xffee9ca7),
+                                        Color(0xffffdde1)
+                                      ]),
+                                      width: 6,
+                                    ),
+                                    borderRadius: BorderRadius.circular(7)),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 3),
+                                      borderRadius: BorderRadius.circular(7)),
+                                  child: Image.network(
+                                    ("https://c4.wallpaperflare.com/wallpaper/733/860/1021/chill-out-clouds-landscape-mountains-wallpaper-preview.jpg"),
+                                    width: 100,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
+                        SizedBox(width: 20),
+                        Text(
+                          'San nghi',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              fontStyle: FontStyle.italic),
+                        )
+                      ],
                     ),
-                    SizedBox(width: 20),
-                    Text('Player 1')
-                  ],
-                ),
-              ),
-              // const Padding(
-              //   padding: EdgeInsets.fromLTRB(150, 200, 150, 150),
-              //   child: Image(
-              //     image: AssetImage('images/VS.png'),
-              //     height: 200,
-              //     width: 100,
-              //   ),
-              // ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(170, 350, 0, 0),
-                child: Row(
-                  children: [
-                    Text('Player 1'),
-                    SizedBox(width: 20),
-                    Positioned(
-                      top: 0,
-                      child: GestureDetector(
-                        onTap: () {
-                          // ontap hình avatar
-                        },
-                        //chỗ bắt đầu
-                        child: Container(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0xffb92b27),
-                                    Color(0xff1565c0)
-                                  ]),
-                              border: Border.all(
-                                width: 3,
-                              ),
-                              borderRadius: BorderRadius.circular(7)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text('Mavis Vermilion',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                fontStyle: FontStyle.italic)),
+                        GestureDetector(
+                          onTap: () {
+                            // ontap hình avatar
+                          },
+                          //chỗ bắt đầu
                           child: Container(
                             decoration: BoxDecoration(
-                                border: GradientBoxBorder(
-                                  gradient: LinearGradient(colors: [
-                                    Color(0xffee9ca7),
-                                    Color(0xffffdde1)
-                                  ]),
-                                  width: 6,
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0xffb92b27),
+                                      Color(0xff1565c0)
+                                    ]),
+                                border: Border.all(
+                                  width: 3,
                                 ),
                                 borderRadius: BorderRadius.circular(7)),
                             child: Container(
                               decoration: BoxDecoration(
-                                  border: Border.all(width: 3),
+                                  border: GradientBoxBorder(
+                                    gradient: LinearGradient(colors: [
+                                      Color(0xffee9ca7),
+                                      Color(0xffffdde1)
+                                    ]),
+                                    width: 6,
+                                  ),
                                   borderRadius: BorderRadius.circular(7)),
-                              child: Image.network(
-                                ("https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-1/278377002_3147115085544105_8279216043983986656_n.jpg?stp=dst-jpg_s200x200&_nc_cat=106&ccb=1-7&_nc_sid=7206a8&_nc_ohc=K4q5CEP3Je8AX-knRaH&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfCCCoDM_3SvKyYSK5zptfJ7i9sNmBl59BMFBXvE-6m78g&oe=6384D8E6"),
-                                width: 100,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(width: 3),
+                                    borderRadius: BorderRadius.circular(7)),
+                                child: Image.network(
+                                  ("https://c4.wallpaperflare.com/wallpaper/733/860/1021/chill-out-clouds-landscape-mountains-wallpaper-preview.jpg"),
+                                  width: 100,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Padding(
-                  padding: const EdgeInsets.only(top: 550, left: 130),
-                  child: SizedBox(
-                    height: 70,
-                    width: 150,
-                    child: OutlinedButton(
+                    OutlinedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -170,11 +173,9 @@ class _WaitbattleState extends State<Waitbattle> {
                         ),
                       ),
                     ),
-                  )),
-            ]),
-          ),
-        ),
-      ),
+                  ]),
+            ],
+          )),
     );
   }
 }

@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../components/answr_widget.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import '../models/question.dart';
 import 'chonchedo.dart';
 
@@ -15,110 +14,237 @@ class Single extends StatefulWidget {
 
 class _SingleState extends State<Single> {
   int timeleft = 30;
-  void startTime() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      if (timeleft > 0) {
-        setState(() {
-          timeleft--;
-        });
-      } else {
-        timer.cancel();
-      }
-    });
-  }
+//   Timer? timer;
+//   startTimer() {
+//     timer = Timer.periodic(Duration(seconds: 1), (timer) {
+//       setState(() {
+//         seconds--;
+//         if (seconds < 0 && heart > 0) {
+//           Question++;
+//           heart--;
 
+//           seconds = ValuesGame.seconds;
+//         }
+//         if (heart <= 0) {
+//           heart = 0;
+//           seconds = 0;
+//           isGameOver = true;
+//         }
+//       });
+//     });
+//   }
+
+  bool isGameOver = false;
   @override
+  // void initState() {
+  //   super.initState();
+  //   quiz = getQuiz();
+  //   startTimer();
+  // }
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/background.jpg"), fit: BoxFit.fill),
-          ),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              top_layout(),
-              SizedBox(
-                child: Container(
-                    margin: EdgeInsets.all(19),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const Text(
-                          "Câu hỏi: Tự nhiên",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 33,
-                              height: 25,
-                              child: SvgPicture.asset(
-                                "images/leaf.svg",
-                              ),
-                            ),
-                            Text("$timeleft"),
-                          ],
-                        ),
-                      ],
-                    )),
-              ),
-              _listAnswer(),
-              _help(),
-              OutlinedButton(
-                onPressed: () {
-                  Navigator.pop(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Picklevel(),
-                    ),
-                  );
-                },
-                child: Text(
-                  "Trở về",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black),
-                ),
-              ),
-            ],
-          ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
         ),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            progessbar(),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text("Câu hỏi: Tự nhiên"),
+            _listAnswer(),
+            SizedBox(
+              height: 40,
+            ),
+            _help(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding progessbar() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      child: Container(
+        width: double.infinity,
+        height: 30,
+        decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xFF3F4768), width: 1),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Stack(children: [
+          LayoutBuilder(
+            builder: (context, constrains) => Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 18, 188, 131),
+                border: Border.all(color: const Color(0xFF3F4768), width: 1),
+                borderRadius: BorderRadius.circular(50),
+              ),
+            ),
+          ),
+          Positioned.fill(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text('$timeleft'),
+                ]),
+          ),
+        ]),
       ),
     );
   }
 
   Row _help() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        MaterialButton(
-          onPressed: () {
-            //chức năng trợ giúp
-          },
-          color: Color.fromRGBO(240, 240, 240, 1),
-          child: Text(
-            "50:50",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+        const SizedBox(width: 15),
+        GestureDetector(
+          onTap: () {},
+          child: Stack(children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 18,
+              width: MediaQuery.of(context).size.width / 4,
+              decoration: const BoxDecoration(
+                color: Color(0xffCDC1C5),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 3.0, left: 15),
+              child: Text(
+                "50:50",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 80,
+                top: 20,
+              ),
+              child: SizedBox(
+                  height: MediaQuery.of(context).size.height / 20,
+                  width: MediaQuery.of(context).size.width / 15,
+                  child: SvgPicture.asset('images/50.svg')),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, left: 80),
+              child: Row(
+                children: [
+                  const Text('-3'),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 40,
+                    width: MediaQuery.of(context).size.height / 40,
+                    child: SvgPicture.asset(
+                      "images/leaf.svg",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ]),
         ),
-        MaterialButton(
-          onPressed: () {
-            //chức năng trợ giúp
-          },
-          color: Color.fromRGBO(240, 240, 240, 1),
-          child: Text("+30s"),
+        const SizedBox(width: 15),
+        GestureDetector(
+          onTap: () {},
+          child: Stack(children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 18,
+              width: MediaQuery.of(context).size.width / 4,
+              decoration: const BoxDecoration(
+                color: Color(0xffCDC1C5),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 3.0, left: 15),
+              child: Text(
+                "+30s",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 60,
+                top: 20,
+              ),
+              child: SizedBox(
+                  height: MediaQuery.of(context).size.height / 20,
+                  child: Image.asset('images/+30s.png')),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, left: 80),
+              child: Row(
+                children: [
+                  const Text('-3'),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 40,
+                    width: MediaQuery.of(context).size.height / 40,
+                    child: SvgPicture.asset(
+                      "images/leaf.svg",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ]),
         ),
-        MaterialButton(
-          onPressed: () {
-            //chức năng trợ giúp
-          },
-          color: Color.fromRGBO(240, 240, 240, 1),
-          child: Text("Next "),
+        const SizedBox(width: 15),
+        GestureDetector(
+          onTap: () {},
+          child: Stack(children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 18,
+              width: MediaQuery.of(context).size.width / 4,
+              decoration: const BoxDecoration(
+                color: Color(0xffCDC1C5),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 3.0, left: 15),
+              child: Text(
+                "Next",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 60,
+                top: 20,
+              ),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height / 20,
+                child: SizedBox(
+                  child: SvgPicture.asset('images/next.svg'),
+                  height: 23,
+                  width: 20,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, left: 80),
+              child: Row(
+                children: [
+                  const Text('-3'),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 40,
+                    width: MediaQuery.of(context).size.height / 40,
+                    child: SvgPicture.asset(
+                      "images/leaf.svg",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ]),
         ),
       ],
     );
@@ -126,34 +252,34 @@ class _SingleState extends State<Single> {
 
   SizedBox _listAnswer() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 1.5,
+      height: MediaQuery.of(context).size.height / 1.7,
       child: PageView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: questions.length,
         itemBuilder: ((context, index) {
           final _question = questions[index];
-
           return buildQuestion(_question);
         }),
       ),
     );
   }
 
-// khung câu hỏi nằm ở đây
   Padding buildQuestion(Question question) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height / 5,
             width: MediaQuery.of(context).size.width / 1,
             decoration: BoxDecoration(
+                color: const Color.fromRGBO(240, 240, 240, 1),
                 border: Border.all(width: 2),
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Column(children: [
-              Text(question.quest),
-            ]),
+                borderRadius: const BorderRadius.all(Radius.circular(20))),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(question.quest),
+            ),
           ),
           const SizedBox(
             height: 20,
@@ -166,44 +292,8 @@ class _SingleState extends State<Single> {
       ),
     );
   }
-
-// header của thằng đồng nó nằm ở đây
-  Container top_layout() {
-    return Container(
-      height: MediaQuery.of(context).size.height / 18,
-      decoration: BoxDecoration(
-        border: Border.all(width: 2),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(20),
-        ),
-        color: const Color.fromRGBO(240, 240, 240, 1),
-      ),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        const Padding(
-          padding: EdgeInsets.all(2),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(
-                "https://coinvn.com/wp-content/uploads/2021/05/717_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDUvZmFmZTZiMjAtZjA1Ny00ODg0LWI1ZTUtOGQ5M2JkNWViZDQ3LmpwZw.jpg"),
-          ),
-        ),
-        Text(timeleft.toString()),
-        Row(
-          children: [
-            Image.asset(
-              "images/Heart.png",
-              width: 20,
-              height: 25,
-              color: Colors.red,
-            ),
-            Text("1"),
-          ],
-        )
-      ]),
-    );
-  }
 }
 
-// mấy câu trả lời nó nằm ở đây
 class Answer extends StatelessWidget {
   final Question question;
   const Answer({super.key, required this.question});
@@ -218,21 +308,17 @@ class Answer extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   height: 45,
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.only(left: 10),
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(240, 240, 240, 1),
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1.0,
-                    ),
-                  ),
+                      color: const Color.fromRGBO(240, 240, 240, 1),
+                      border:
+                          Border.all(color: const Color(0xFF3F4768), width: 1),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10))),
                   child: Row(
                     children: [
                       Text(
                         answer.text,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
                       )
                     ],
                   ),

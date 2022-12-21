@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import '../screen/history.dart';
 import '../models/ListSingle.dart';
 
-class History extends StatefulWidget {
-  const History({super.key});
+class Rank extends StatefulWidget {
+  const Rank({super.key});
 
   @override
-  State<History> createState() => _HistoryState();
+  State<Rank> createState() => _RankState();
 }
 
-class _HistoryState extends State<History> {
+class _RankState extends State<Rank> {
   final List player = [
     "player 1",
     "player 2",
