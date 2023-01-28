@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class forgotPasswordPage extends StatefulWidget {
@@ -12,7 +11,6 @@ class forgotPasswordPage extends StatefulWidget {
 class _forgotPasswordPageState extends State<forgotPasswordPage> {
   TextEditingController nameController = TextEditingController();
   @override
-
 //hông hỉu despose để làm gì
   void dispose() {
     nameController.dispose();
@@ -20,25 +18,36 @@ class _forgotPasswordPageState extends State<forgotPasswordPage> {
   }
 
 //hông hỉu future để làm gì
-// à này là kiểm tra trong cở sở dữ liệu
-// Future PasswordReset() async{
-// await  Fireb
-// }
+//à này là kiểm tra trong cở sở dữ liệu
+  Future PasswordReset() async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: nameController.text.trim());
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text('link đổi mật khẩu đã được gửi! check mail'),
+          );
+        },
+      );
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('./images/background.jpg'),
-                    fit: BoxFit.cover)),
+                    fit: BoxFit.fill)),
             child: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -95,6 +104,7 @@ class _forgotPasswordPageState extends State<forgotPasswordPage> {
                       child: OutlinedButton(
                         onPressed: () {
                           //function đăng nhập đễ đây
+                          PasswordReset();
                         },
                         child: Text(
                           'Lấy lại mật khẩu',

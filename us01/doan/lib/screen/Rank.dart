@@ -74,17 +74,14 @@ class _RankState extends State<Rank> {
                           ),
                           ListView(
                             children: [
-                              single(),
-                              single(),
-                              single(),
-                              single(),
-                              single(),
-                              single(),
-                              single(),
-                              single(),
-                              single(),
-                              single(),
-                              single(),
+                              battles(title: 'Thắng'),
+                              battles(title: 'Thua'),
+                              battles(title: 'Thắng'),
+                              battles(title: 'Thua'),
+                              battles(title: 'Thắng'),
+                              battles(title: 'Thua'),
+                              battles(title: 'Thắng'),
+                              battles(title: 'Thua'),
                             ],
                           ),
                         ],
@@ -138,6 +135,115 @@ class single extends StatelessWidget {
 
                         // Tên player
                         Text("Mavis Vermilion")
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            // cấp độ player
+            Positioned(
+              top: 35,
+              left: 200,
+              child: Container(
+                width: 60,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 1.0,
+                  ),
+                ),
+                child: Text(
+                  '30',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                alignment: Alignment.center,
+              ),
+            ),
+            // lable level
+            Positioned(
+              top: 19,
+              left: 210,
+              child: Text(
+                "Level",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            Positioned(
+              top: 35,
+              left: 260,
+              child: Container(
+                width: 60,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 1.0,
+                  ),
+                ),
+                child: Text(
+                  '2048',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                alignment: Alignment.center,
+              ),
+            ),
+            //icon star
+            Positioned(
+              top: 10,
+              right: -10,
+              left: 210,
+              child: SvgPicture.asset(
+                "images/star1.svg",
+                width: 30,
+              ),
+            ),
+          ]),
+        ]),
+      ),
+    );
+  }
+}
+class battles extends StatelessWidget {
+  const battles({super.key, required this.title});
+final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: Column(children: [
+          Stack(children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(19)),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 1.0,
+                  ),
+                ),
+                child: Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          "images/top1.svg",
+                          width: 50,
+                          height: 50,
+                        ),
+
+                        // Tên player
+                        Text(this.title)
                       ],
                     ),
                   ),

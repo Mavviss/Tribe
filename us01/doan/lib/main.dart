@@ -7,17 +7,42 @@ import 'package:doan/screen/chonchedo.dart';
 import 'package:doan/screen/chonmanchoi.dart';
 import 'package:doan/screen/history.dart';
 import 'package:doan/screen/shop.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'components/appbar_custom.dart';
+import 'models/music.dart';
 import 'screen/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future  main( ) async{
+  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-    runApp(MyApp());
+
+    runApp( 
+      MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: StreamBuilder<User?>(
+        //kiểm tra user đã có đăng nhập
+        stream: FirebaseAuth.instance.idTokenChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Something went wrong !!!'));
+          } else if (snapshot.hasData) {
+            return Home();
+          } else {
+            return LoginPage();
+            // }
+          }
+        },
+      ),   
+      )
+      
+      );
 }
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -81,12 +106,5 @@ single(),
       ),
       
       );
-  }
-}
-class Start extends StatelessWidget {
-  const Start({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

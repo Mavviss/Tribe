@@ -1,5 +1,7 @@
+import 'package:doan/main.dart';
 import 'package:doan/screen/Rank.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../components/appbar_custom.dart';
 import '../components/bottom.dart';
 import './rank.dart';
@@ -13,6 +15,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+       SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+  // SystemUiOverlay.bottom,
+]);
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
@@ -42,7 +47,7 @@ class _HomeState extends State<Home> {
                             context,
                             MaterialPageRoute(
                               builder: ((context) =>
-                                  const Picklevel()), // sửa lại đường dẫnnnnnn
+                                  const MyApp()), // sửa lại đường dẫnnnnnn
                             ),
                           );
                         },

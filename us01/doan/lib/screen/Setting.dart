@@ -1,10 +1,13 @@
 import 'package:doan/screen/information.dart';
+import 'package:doan/screen/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 class setting  extends StatelessWidget {
   const setting ({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final _auth = FirebaseAuth.instance;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
        home:Scaffold(
@@ -42,7 +45,7 @@ class setting  extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const Inforplayer(),
+                                builder: (context) =>  Inforplayer(),
                               ),
                             );
                       }, icon: SvgPicture.asset("images/edit.svg"))
@@ -72,7 +75,16 @@ class setting  extends StatelessWidget {
                           leading:Icon(Icons.logout,color: Color.fromARGB(255, 29, 28, 28),) ,
                           title: Text("Đăng xuất"),
                           trailing: Icon(Icons.keyboard_arrow_right),
-                          onTap: (){},
+                          onTap: (){
+
+                              _auth.signOut().then((value) => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => LoginPage()),
+                              ),
+                            ));
+
+                          },
                           ),
                        ],
                        ),

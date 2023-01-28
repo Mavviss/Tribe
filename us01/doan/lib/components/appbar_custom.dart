@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:doan/screen/information.dart';
 import 'package:doan/screen/setting.dart';
 import 'package:doan/screen/shop.dart';
 import 'package:flutter/material.dart';
@@ -62,6 +63,10 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                         child: GestureDetector(
                           onTap: () {
                             // ontap hình avatar
+                             Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  Inforplayer()),
+                              );
                           },
                           //chỗ bắt đầu
                           child: Container(

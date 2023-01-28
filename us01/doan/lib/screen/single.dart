@@ -8,8 +8,11 @@ import '../models/question.dart';
 import 'chonchedo.dart';
 
 class Single extends StatefulWidget {
-  const Single({super.key, required this.totalTime, required this.questions});
+  const Single({super.key, required this.totalTime, required this.questions, required this.toppic,required this.index, required this.limit});
   final int totalTime;
+  final String toppic;
+  final int index;
+  final int limit;
   final List<Question> questions;
   @override
   State<Single> createState() => _SingleState();
@@ -23,6 +26,7 @@ class _SingleState extends State<Single> {
   String _selectedAnswer = '';
   int _score = 1;
   int timeleft = 30;
+  int _limid =0;
   void initState() {
     super.initState();
     _currentTime = widget.totalTime;
@@ -36,6 +40,10 @@ class _SingleState extends State<Single> {
         pushResultScreen(context);
       }
     });
+
+    _currentIndex = widget.index;
+    _limid = widget.limit;
+    
   }
 
   void pushResultScreen(BuildContext context) {
@@ -44,6 +52,7 @@ class _SingleState extends State<Single> {
         builder: (context) => WinSingle(
           questions: widget.questions,
           score: _score,
+          toppic: widget.toppic,
         ),
       ),
     );
@@ -132,10 +141,10 @@ class _SingleState extends State<Single> {
                         });
 
                         if (answer == currentQuestion.correct) {
-                          _score *= 2 + _currentTime;
+                          _score +=  19+ _currentTime;
                         }
                         Future.delayed(Duration(milliseconds: 300), () {
-                          if (_currentIndex == widget.questions.length - 1) {
+                          if ( _currentIndex == widget.questions.length -_limid  ) {
                             pushResultScreen(context);
                             return;
                           }
